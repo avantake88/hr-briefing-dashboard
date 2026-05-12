@@ -23,11 +23,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
 
 /* ── 레이아웃 ── */
 .container{max-width:2000px;margin:0 auto;padding:28px 44px}
-.section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch}
 
 /* ── 섹션 카드 ── */
-.section{border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.07),0 8px 24px rgba(0,0,0,.09);display:flex;flex-direction:column;background:#fff}
-.section-cat-header{padding:18px 22px 16px;position:relative;overflow:hidden;border-radius:16px 16px 0 0}
+.section{border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.07),0 8px 24px rgba(0,0,0,.09);display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;overflow:hidden}
+.section-cat-header{padding:18px 22px 16px;position:relative;overflow:hidden;border-radius:0}
 .section-cat-header::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.06)}
 .sec-header-row{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
 .sec-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
@@ -38,7 +38,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
 .featured-wrap{padding:14px 18px;border-left:4px solid transparent;height:370px;display:flex;flex-direction:column}
 .featured-inner{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06);flex:1;overflow:hidden;display:flex;flex-direction:column}
 /* 하위기사 래퍼가 남은 공간을 채움 */
-.grid-wrap{flex:1;display:flex;flex-direction:column;border-radius:0 0 16px 16px;overflow:hidden}
+.grid-wrap{flex:1;display:flex;flex-direction:column;min-height:0}
 .featured-badge{display:inline-flex;align-items:center;align-self:flex-start;gap:5px;font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;margin-bottom:12px;letter-spacing:.3px}
 .featured-title{font-size:16px;font-weight:800;color:#0f172a;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:9px;letter-spacing:-.3px;min-height:2.8em}
 .featured-title:hover{color:#4f6ef7}
@@ -52,9 +52,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
 .disc-q:last-child{border-bottom:none;padding-bottom:0}
 
 /* ── 하위 기사 그리드 ── */
-.grid{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:0;margin-top:1px}
-.card{background:#fff;padding:15px 22px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;display:flex;flex-direction:column}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;align-content:start;gap:0;margin-top:1px}
+.card{background:#fff;padding:15px 22px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;display:flex;flex-direction:column;overflow:hidden;height:200px}
 .card:nth-child(even){border-right:none}
+.card-empty{height:200px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0}
+.card-empty:nth-child(even){border-right:none}
 .card-title{font-size:12.5px;font-weight:700;color:#1e293b;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:7px;letter-spacing:-.1px;min-height:2.7em}
 .card-title:hover{color:#4f6ef7}
 .src-row-sm{display:flex;align-items:center;gap:6px;margin-bottom:9px}
@@ -115,11 +117,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">kyosu.net</span>
         <span class="dt">05/07</span>
       </div>
-      <div class="summary">국내 대기업 절반 이상이 AI 면접을 도입하여 객관적 평가를 추구하고 있으나, 아마존의 성차별 AI 폐기 사례처럼 알고리즘 편향성 문제가 지속되고 있다. 우리 회사의 채용 프로세스에서 AI 면접 도입 시 차별 위험성과 법적·윤리적 검증을 철저히 해야 하는 상황을 반영한다.</div>
+      <div class="summary">대기업 절반 이상이 AI 면접 솔루션을 도입했으나, 아마존의 AI 채용 시스템 폐기 사례처럼 알고리즘 편향(성별·인종 차별)으로 인한 법적·윤리적 리스크가 제기되고 있다. 채용 AI 도입 시 공정성 검증과 규제 리스크 관리가 필수 실무 과제임을 보여준다.</div>
       
       <div class="discussion" style="background:#4F46E50d;border-color:#4F46E530">
         <div class="disc-lbl" style="color:#4F46E5">💬 Discussion</div>
-        <div class="disc-q" style="color:#4F46E5dd">1. AI 면접 솔루션 도입 시 성별, 나이, 국적 등 보호 대상 특성에 대한 편향성을 사전에 검증하기 위한 우리 회사의 가이드라인이나 체크리스트가 있는가?</div><div class="disc-q" style="color:#4F46E5dd">2. 현재 사용 중인 AI 채용 도구(있다면)에 대해 정기적인 공정성 감시(bias audit)를 실시하고 있는가?</div>
+        <div class="disc-q" style="color:#4F46E5dd">1. 우리 회사가 AI 면접 도입을 검토 중이라면, 알고리즘 편향성 감사와 법적 리스크 평가를 위한 체크리스트를 어떻게 구성할 것인가?</div><div class="disc-q" style="color:#4F46E5dd">2. 현재 운영 중인 면접 AI 시스템이 있다면 편향성 검증을 위한 감사 주기와 방법을 정하고 실행할 계획이 있는가?</div>
       </div>
       
     </div>
@@ -134,11 +136,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="http://www.newsprime.co.kr/news/article.html?no=733032" target="_blank">현대모비스, 협력사 SW 생태계 넓힌다…교육부터 채용까지</a>
       <div class="src-row-sm"><span class="src-badge">newsprime.co.kr</span><span class="dt">05/11</span></div>
-      <div class="card-summary">현대모비스가 협력사를 위한 SW 부트캠프를 운영하며 교육부터 채용까지 전주기적으로 인재 생태계를 지원하고 있다. IT 인재 부족으로 인한 협력업체의 채용 어려움을 기업이 주도적으로 해결하는 사례로, 우리 회사도 유사한 협력사 인재 육성·채용 지원 프로그램 도입 검토 필요성을 시사한다.</div>
+      <div class="card-summary">현대모비스가 협력사 대상으로 SW 개발자 양성 부트캠프를 운영하며 교육부터 채용까지 지원하는 에코시스템을 구축하고 있다. IT 기업들과의 인재 경쟁 심화 속에서 협력업체의 인력 확보 부담을 줄이고 공급망 안정성을 높이는 HR 전략 사례로서 참고할 가치가 있다.</div>
       
       <div class="card-disc" style="background:#4F46E508;border-color:#4F46E525">
         <div class="card-disc-lbl" style="color:#4F46E5">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#4F46E5cc">우리 회사의 협력사 또는 생태계 파트너들을 대상으로 한 인재 양성 프로그램(부트캠프, 교육 지원 등)을 현재 운영하고 있으며, 확대할 계획이 있는가?</div>
+        <div class="card-disc-q" style="color:#4F46E5cc">우리 회사도 공급망 파트너사의 핵심 인재 양성에 투자하는 방식을 검토할 필요가 있는지, 검토한다면 어떤 직무·기술 영역부터 시작할 것인가?</div>
       </div>
       
     </div>
@@ -146,15 +148,16 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://zdnet.co.kr/view/?no=20260505150038" target="_blank">이랜서, '청년 일자리 지원' 선정…AI 인재 육성 본격화</a>
       <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/06</span></div>
-      <div class="card-summary">이랜서가 정부 청년 일자리 지원 사업에 선정되어 AI 인재 육성을 본격화하고 있으며, 이는 기업의 채용 지원을 넘어 산업 구조 변화에 대응하는 신호로 평가된다. 우리 회사도 정부 지원 프로그램 활용을 통한 AI 등 신기술 인재 양성 전략을 검토할 필요가 있다.</div>
+      <div class="card-summary">이랜서가 정부 청년 일자리 지원사업에 선정되어 AI 인재 육성을 본격화하고 있으며, 이는 단순 채용 지원을 넘어 산업 구조 변화 신호로 평가되고 있다. IT 업계의 AI 인재 부족 심화와 정부 지원 정책의 방향성을 파악하는 데 유용하다.</div>
       
       <div class="card-disc" style="background:#4F46E508;border-color:#4F46E525">
         <div class="card-disc-lbl" style="color:#4F46E5">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#4F46E5cc">우리 회사가 정부의 청년 일자리 지원, AI 인재 육성 관련 지원 사업(고용노동부, 과기부 등)을 현재 활용하고 있으며, 추가 신청·확대할 여지가 있는가?</div>
+        <div class="card-disc-q" style="color:#4F46E5cc">정부 AI 인재 육성 사업 지원 대상이 될 수 있는 우리 회사의 인력 개발 프로그램이 있는지 검토하고, 있다면 지원 절차를 구체적으로 추진할 것인가?</div>
       </div>
       
     </div>
   
+  <div class="card-empty"></div><div class="card-empty"></div>
   </div>
   </div>
 </div>
@@ -179,11 +182,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">businesspost.co.kr</span>
         <span class="dt">05/12</span>
       </div>
-      <div class="summary">김영훈 고용노동부 장관이 프리랜서로 위장한 '가짜 3.3 계약'을 명백한 위법 행위로 규정하고 중대재해처벌법 적용을 강화하겠다는 입장을 보였다. 향후 정부의 노동법 집행이 강화될 가능성이 높아 기업의 고용형태 분류, 근로계약 체결 방식, 산업안전 관리에 대한 전면적인 재검토가 필요하다.</div>
+      <div class="summary">신임 고용노동부 장관이 프리랜서로 위장한 '가짜 3.3 계약'을 위법으로 규정하고 중대재해처벌법 위반에 대한 강경한 입장을 보이고 있습니다. HR팀은 특수고용·프리랜서 계약 현황 점검과 중대재해 예방 체계 강화가 시급한 상황입니다.</div>
       
       <div class="discussion" style="background:#DC26260d;border-color:#DC262630">
         <div class="disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="disc-q" style="color:#DC2626dd">현재 당사 프리랜서, 특수고용 등 비정규직 계약 관행이 정부의 '가짜 3.3 계약' 기준에 위배되지 않는지 법무팀과 협력하여 긴급 점검할 계획이 있는가?</div>
+        <div class="disc-q" style="color:#DC2626dd">1. 현재 우리 회사 내 프리랜서·특수고용 계약자 현황(규모, 계약 형태, 근무 조건)을 전수 점검하고, 법적 위험이 있는 '가짜 계약'이 없는지 즉시 감시하기 위한 감시 체크리스트를 만들 필요가 있을까요?</div><div class="disc-q" style="color:#DC2626dd">2. 중대재해처벌법 시행 이후 우리 회사의 중대재해 발생 현황, 예방 체계의 현 수준, 보완이 필요한 영역이 무엇인지 안전보건팀과 협력하여 진단하고 개선 로드맵을 세워야 하지 않을까요?</div>
       </div>
       
     </div>
@@ -196,13 +199,13 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
   <div class="grid">
   
     <div class="card">
-      <a class="card-title" href="https://www.ksg.co.kr/news/main_newsView.jsp?pNum=147151" target="_blank">“선원노련 산별노조 전환 임기내 달성 목표”</a>
-      <div class="src-row-sm"><span class="src-badge">ksg.co.kr</span><span class="dt">05/11</span></div>
-      <div class="card-summary">개정 노동법 시행으로 산업별(산별) 교섭 체계로의 전환이 정부 정책 방향으로 명확해졌으며, 선원노련 등 업계 노조도 이러한 변화에 대응하고 있다. IT 등 타 산업에서도 기업별 교섭 체계에서 산별 교섭 체계로의 구조 변화가 가속화될 가능성이 있어, 단체협약 전략 수립에 영향을 미칠 수 있다.</div>
+      <a class="card-title" href="https://www.pressian.com/pages/articles/2026051218190628788?utm_source=naver&utm_medium=search" target="_blank">급변하는 노동환경 대응…노사발전재단 전북노사상생센터, 실무교육 마...</a>
+      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/12</span></div>
+      <div class="card-summary">노동조합 및 노동관계조정법(노란봉투법) 시행, 주 4.5일제 시범사업, 5인 미만 사업장 확대 등 올해의 주요 노동법 개정사항과 판례, 산업안전, 기업 실무 대응방안을 다루는 교육이 진행되고 있습니다. HR팀은 급변하는 노동환경 변화에 대해 조직 내 정책 및 제도 정비가 필요한 시점을 인식해야 합니다.</div>
       
       <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
         <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#DC2626cc">IT 업계에서도 산별 교섭 확대 추세에 대비하여 현재 기업별 단체협약 구조를 어떻게 개편할지, 그리고 산별노조와의 교섭 준비 일정을 수립할 필요가 있는가?</div>
+        <div class="card-disc-q" style="color:#DC2626cc">올해 도입되는 노란봉투법, 주 4.5일제, 5인 미만 사업장 기준 변화가 우리 회사의 현재 인사제도·급여체계·근로시간 관리 시스템에 미치는 영향을 구체적으로 매핑하고, 3분기 내 대응 계획을 수립할 필요가 있지 않을까요?</div>
       </div>
       
     </div>
@@ -210,11 +213,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.idomin.com/news/articleView.html?idxno=2005491" target="_blank">원청 교섭 책임 없인 특수고용노동자 보호도 없다</a>
       <div class="src-row-sm"><span class="src-badge">idomin.com</span><span class="dt">05/11</span></div>
-      <div class="card-summary">3월 개정 노동조합법 시행으로 노동조건을 실질적으로 지배·결정하는 원청도 근로계약 당사자로 인정되면서, 특수고용 노동자 보호의 책임 범위가 확대되었다. IT 플랫폼 기업이 협력업체나 위탁사원을 다수 고용한 경우, 원청의 법적 책임이 강화될 수 있어 노사관계 구조 재정비가 시급하다.</div>
+      <div class="card-summary">3월 시행된 개정 노동조합법에서 노동조건을 실질적으로 지배·결정하면 원청도 근로계약 당사자로 간주되어 단체교섭 책임을 지게 됩니다. HR팀은 협력사·용역사 등 간접고용 관계에서의 법적 책임 범위 변화를 인식하고 노사관계 전략을 조정해야 합니다.</div>
       
       <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
         <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#DC2626cc">협력업체, 위탁사원, 플랫폼 노동자 등 간접고용 관계에서 당사의 '실질적 지배·결정' 범위를 명확히 하고, 이에 따른 교섭 책임과 단체협약 체결 의무를 어떻게 대비할 것인가?</div>
+        <div class="card-disc-q" style="color:#DC2626cc">우리 회사가 협력사·용역사 근로자에 대해 실질적으로 노동조건을 '지배·결정'하고 있는 부분이 있는지 점검하고, 개정법에 따른 교섭 책임 범위를 명확히 정의하여 법적 위험을 사전에 차단할 필요가 있을까요?</div>
       </div>
       
     </div>
@@ -222,15 +225,16 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://sjbnews.com/news/news.php?number=878099" target="_blank">상생의 노사관계 확산 위한 노사상생협력교육 실시</a>
       <div class="src-row-sm"><span class="src-badge">sjbnews.com</span><span class="dt">05/10</span></div>
-      <div class="card-summary">노동법 개정으로 중소기업의 노무 관리 난제(노동법, 노사관계, 산업안전)가 증가하고 있으며, 정부에서 노사상생협력교육을 확대하고 있다. HR팀은 협력사, 자회사 등 관계사 대상의 노무 교육 프로그램을 강화하고, 법적 리스크 관리 체계를 정비할 필요가 있다.</div>
+      <div class="card-summary">중소기업의 노동법·노사관계·산업안전 등 현장 현안에 대한 교육 접근성과 대응 여력 부족이 지적되고 있습니다. HR팀은 조직 규모와 특성에 맞는 노동법 대응 체계와 내부 교육·역량 강화 방안을 검토할 필요가 있습니다.</div>
       
       <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
         <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#DC2626cc">당사의 협력업체, 하청사 등 관계사를 대상으로 개정 노동법 준수를 위한 교육 및 컨설팅 지원 체계를 구축할 계획이 있는가?</div>
+        <div class="card-disc-q" style="color:#DC2626cc">우리 회사 규모와 사업 특성을 반영한 노동법 대응 가이드라인 정비, HR 담당자·경영진 대상 정기 교육 프로그램 설계, 외부 전문가 네트워크 구축 등을 통해 법적 리스크 대응 역량을 강화할 구체적인 액션 플랜을 수립할 필요가 있을까요?</div>
       </div>
       
     </div>
   
+  <div class="card-empty"></div>
   </div>
   </div>
 </div>
@@ -255,11 +259,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">ccreview.co.kr</span>
         <span class="dt">05/12</span>
       </div>
-      <div class="summary">정부혁신 조직인 행복청이 조직문화 혁신을 위한 '해피브릿지' 2기 프로젝트를 시작하며, 조직 내 불합리한 관행 개선과 민간기업 및 공공기관의 우수사례 벤치마킹을 통해 유연한 조직문화 조성을 추진 중입니다. 우리 회사도 공유할 수 있는 조직문화 혁신의 실질적 사례와 방법론을 제시하고 있어 참고 가치가 있습니다.</div>
+      <div class="summary">행복청이 조직문화 혁신을 위한 '해피브릿지' 프로그램을 출범하여 조직 내 불합리한 관행 개선과 유연한 조직문화 조성에 나서고 있으며, 민간기업 및 타 공공기관의 혁신 우수사례를 벤치마킹할 예정이다. 우리 HR팀은 공공기관의 조직문화 혁신 사례와 불합리한 관행 개선 방안을 우리 조직에 적용할 수 있는지 검토할 필요가 있다.</div>
       
       <div class="discussion" style="background:#0596690d;border-color:#05966930">
         <div class="disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="disc-q" style="color:#059669dd">행복청의 정책현장 방문과 실무 중심 아이디어 발굴 방식이 우리 조직의 직급별·부서별 문화 혁신 워크숍 운영에 어떻게 적용될 수 있을까?</div>
+        <div class="disc-q" style="color:#059669dd">해피브릿지의 '불합리한 관행 개선' 사례와 실행 방식이 무엇인지 파악하여, NAVER 조직에서 유사하게 추진할 수 있는 리더십 혁신 프로그램이 있는지 검토할 수 있을까?</div>
       </div>
       
     </div>
@@ -274,11 +278,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.ccdn.co.kr/news/articleView.html?idxno=1077768" target="_blank">행복청, 정부혁신 모임 '해피브릿지' 2기 발대</a>
       <div class="src-row-sm"><span class="src-badge">ccdn.co.kr</span><span class="dt">05/12</span></div>
-      <div class="card-summary">행복청의 '해피브릿지' 2기가 공식 출범하며 조직 내 불합리한 관행 개선과 민간기업 벤치마킹을 통해 조직문화 혁신을 추진합니다. 공공기관의 조직문화 혁신 사례로서 우리 회사의 유사한 제도 개선 및 문화 구축에 참고할 수 있는 모범 사례입니다.</div>
+      <div class="card-summary">행복청의 '해피브릿지' 2기가 발대하여 조직 내 불합리한 관행 개선과 정책현장 중심의 아이디어 발굴을 진행하며, 민간기업 및 타 공공기관의 혁신 우수사례를 벤치마킹하고자 한다. 공공기관의 조직문화 혁신 방향을 파악하는 것이 우리 기업의 HR 정책 수립 시 참고할 수 있다.</div>
       
       <div class="card-disc" style="background:#05966908;border-color:#05966925">
         <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">우리 조직에서 '불합리한 관행 개선'의 우선순위를 정하기 위해 어떤 진단 도구나 프로세스를 도입할 것인가?</div>
+        <div class="card-disc-q" style="color:#059669cc">해피브릿지의 '정책현장 방문을 통한 실무 중심의 아이디어 발굴' 방식을 우리 조직의 리더십 개발 프로그램이나 조직개선 활동에 도입할 수 있는 모델이 있는지 검토할 필요가 있을까?</div>
       </div>
       
     </div>
@@ -286,11 +290,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.ccdailynews.com/news/articleView.html?idxno=2415715" target="_blank">행복청, 조직문화 혁신 '해피브릿지 2기' 발대</a>
       <div class="src-row-sm"><span class="src-badge">ccdailynews.com</span><span class="dt">05/12</span></div>
-      <div class="card-summary">행복청의 '해피브릿지 2기' 발대를 통해 조직 내 불합리한 관행 개선, 정책현장 중심의 아이디어 발굴, 민간기업 및 타 공공기관의 혁신사례 벤치마킹 등 조직문화 혁신 방법론을 제시하고 있습니다. 대규모 조직의 구조적 문화 개선 사례로서 우리 HR팀의 실행 전략 수립에 직접적인 참고가 됩니다.</div>
+      <div class="card-summary">행복청이 조직문화 혁신을 위한 '해피브릿지 2기'를 발대하며 불합리한 관행 개선 및 유연한 조직문화 조성을 목표로 민간기업의 우수사례를 벤치마킹하고 있다. 공공기관의 조직문화 혁신 사례는 우리 HR팀의 장기적인 조직 개발 전략 수립에 참고할 수 있다.</div>
       
       <div class="card-disc" style="background:#05966908;border-color:#05966925">
         <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">민간기업의 혁신 우수사례를 벤치마킹할 때, IT·클라우드 업계의 특수성을 반영하여 어떤 기업들을 선정하고 어떤 요소들을 우선 검토해야 할까?</div>
+        <div class="card-disc-q" style="color:#059669cc">해피브릿지가 벤치마킹하는 '민간기업의 혁신 우수사례'가 구체적으로 무엇인지 파악하여, NAVER의 조직문화 혁신 사례를 공공기관과 공유할 수 있는 상호 학습 기회를 만들 수 있을까?</div>
       </div>
       
     </div>
@@ -298,11 +302,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.sedaily.com/article/20042995?ref=naver" target="_blank">행복청, ‘해피브릿지’ 닻 올리다</a>
       <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/12</span></div>
-      <div class="card-summary">행복청이 조직문화 혁신을 위해 '해피브릿지'를 출범하여 불합리한 관행 개선, 실무 중심의 아이디어 발굴, 민간기업 벤치마킹을 통한 유연한 조직문화 구축을 추진합니다. 공공기관의 조직혁신 프로젝트 운영 방식이 우리 회사의 문화 개선 실행 계획 수립에 시사점을 제공합니다.</div>
+      <div class="card-summary">행복청의 '해피브릿지' 프로젝트가 조직 내 불합리한 관행 개선과 실무 중심의 아이디어 발굴을 통해 유연한 조직문화를 구축하고자 하며, 민간기업의 혁신 우수사례를 적극 벤치마킹할 예정이다. 공공기관의 조직문화 혁신 추진 방식을 파악하는 것이 우리 기업의 HR 전략 수립에 도움이 될 수 있다.</div>
       
       <div class="card-disc" style="background:#05966908;border-color:#05966925">
         <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">우리 조직에서 '해피브릿지'와 유사한 문화혁신 태스크포스를 구성한다면, 참여 대상(직급·부서)과 역할 분담을 어떻게 설계할 것인가?</div>
+        <div class="card-disc-q" style="color:#059669cc">행복청이 추진 중인 조직문화 혁신의 구체적인 성과 지표와 실행 결과가 무엇인지 추적하여, 우리 조직의 조직문화 진단 및 개선 프로그램의 벤치마킹 대상으로 삼을 가치가 있을까?</div>
       </div>
       
     </div>
@@ -310,14 +314,15 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="http://www.chungnamilbo.co.kr/news/articleView.html?idxno=887942" target="_blank">행복청, 조직문화 혁신 '해피브릿지 2기' 발대식</a>
       <div class="src-row-sm"><span class="src-badge">chungnamilbo.co.kr</span><span class="dt">05/12</span></div>
-      <div class="card-summary">행복청의 '해피브릿지 2기' 발대식이 개최되며 조직 내 불합리한 관행 개선을 위한 실천방안 논의 및 민간기업의 혁신 우수사례 벤치마킹을 통해 조직문화 혁신을 추진합니다. 공공기관 차원의 체계적인 조직문화 개선 시도로서 우리 HR팀의 문화혁신 로드맵 수립에 참고할 수 있습니다.</div>
+      <div class="card-summary">행복청의 '해피브릿지 2기' 발대식에서 조직 내 불합리한 관행 개선과 정책현장 중심의 아이디어 발굴을 추진하며, 민간기업 및 타 공공기관의 혁신 우수사례를 벤치마킹하는 조직문화 혁신 활동을 시작했다. 공공기관의 조직문화 혁신 사례와 방법론이 우리 기업의 HR 정책 수립 과정에서 참고할 수 있는 인사이트를 제공한다.</div>
       
       <div class="card-disc" style="background:#05966908;border-color:#05966925">
         <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">정책현장 방문과 실무 중심 아이디어 발굴이 우리 회사의 부서별 현장 HR 진단 및 개선 활동에 어떻게 구체화될 수 있을까?</div>
+        <div class="card-disc-q" style="color:#059669cc">해피브릿지 2기의 범위 확대와 내실 강화 방향이 구체적으로 무엇인지 파악하여, NAVER HR팀이 추진 중인 조직문화 혁신 과제의 규모 및 깊이를 재검토할 필요가 있을까?</div>
       </div>
       
     </div>
+  
   
   </div>
   </div>
@@ -343,11 +348,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">globalepic.co.kr</span>
         <span class="dt">05/12</span>
       </div>
-      <div class="summary">SK하이닉스의 '영업이익 일정 비율 배분' 보상 공식 도입이 업계 도미노 효과를 촉발했으며, 삼성·카카오 등 대기업까지 성과급 상한 폐지 또는 특별포상 확대로 대응하고 있다. 성과급의 '제도화된 배분 기준' 도입이 노사 협상의 새로운 표준이 되면서, 개별 기업 판단만으로는 불충분한 구조적 변화가 진행 중이다.</div>
+      <div class="summary">SK하이닉스의 '영업이익 10% 성과급 고정화' 사례 이후 삼성, 카카오 등 대기업들이 성과급 상한 폐지 및 이익 비율 연동을 요구받고 있으며, 일회성 보상과 제도화된 성과급 기준에 대한 노사의 입장 차이가 첨예해지고 있다. 글로벌 기준과 국내 노조의 강경한 요구 사이에서 보상 정책의 장기적 지속가능성을 어떻게 설계할지가 주요 과제로 떠올랐다.</div>
       
       <div class="discussion" style="background:#D977060d;border-color:#D9770630">
         <div class="disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="disc-q" style="color:#D97706dd">1. 성과급 상한 폐지 또는 이익 연동 배분 공식 도입 여부를 경영진과 협의할 때, 장기 인건비 관리 관점에서 우리가 수용 가능한 구조는 무엇인가?</div><div class="disc-q" style="color:#D97706dd">2. 특별포상 등 일회성 보상으로 노조 요구를 수용할 경우, 제도화된 기준 마련 없이 과도한 기대 상승을 초래할 위험은 어떻게 관리할 것인가?</div>
+        <div class="disc-q" style="color:#D97706dd">1. 우리 기업이 '일회성 보상' 방식으로 버티기보다, SK하이닉스와 같이 영업이익 또는 매출 기준의 성과급 비율을 제도화할 경우 3년 중기 재정 영향도와 노조 수용성을 사전에 검토해야 하는가?</div><div class="disc-q" style="color:#D97706dd">2. 성과급 상한을 폐지하거나 상향할 경우 고성과자와 저성과자의 보상 격차 확대로 인한 조직 응집력 저하 위험을 어떻게 관리할 것인가?</div>
       </div>
       
     </div>
@@ -362,11 +367,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="http://www.consumernews.co.kr/news/articleView.html?idxno=755543" target="_blank">삼성전자·현대차·카카오까지 산업계 노사 분쟁으로 몸살...로봇·성과...</a>
       <div class="src-row-sm"><span class="src-badge">consumernews.co.kr</span><span class="dt">05/12</span></div>
-      <div class="card-summary">성과급 상한 폐지(현재 연봉 50% 제한 철폐)와 영업이익 연동 배분(15% 수준)이 현대차·카카오 등 주요 기업 노사 분쟁의 핵심 쟁점으로 부상했다. 사측의 특별포상 등 우회책이 노조 수용을 받지 못하면서, 성과급 제도의 근본적 구조 개편이 피할 수 없는 과제가 되었다.</div>
+      <div class="card-summary">현대차와 카카오 노조가 성과급 상한 폐지(현재 연봉 50% 제한)와 영업이익 15% 배분을 요구하며 산업계 전반의 성과급 갈등이 심화되고 있다. 기업들이 특별포상 등 일회성 대응으로는 노조 요구를 충족시킬 수 없다는 점이 드러나, 보상 체계의 구조적 개편이 불가피한 상황이다.</div>
       
       <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
         <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">성과급 상한 폐지 시 최악의 시나리오(극심한 경영 부진기)에서 기업의 인건비 급증으로 인한 재정 부담을 어떤 수준까지 감당할 수 있는지 시뮬레이션한 바 있는가?</div>
+        <div class="card-disc-q" style="color:#D97706cc">우리 기업의 현재 성과급 상한(연봉의 %)이 산업 표준과 비교할 때 어느 수준인지, 그리고 노조 요구 수준(영업이익 15%)에 대응하려면 어떤 단계적 조정 로드맵이 필요한가?</div>
       </div>
       
     </div>
@@ -374,23 +379,23 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.news1.kr/it-science/general-it/6163209" target="_blank">판교로 번진 성과급 갈등…440억 거부한 카카오 노조, 파업 긴장감</a>
       <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/12</span></div>
-      <div class="card-summary">카카오 노조가 440억 성과급 지급안을 거부하면서 IT 업계까지 성과급 갈등이 확산되었으며, 경영진의 소통 불성실 지적이 노조의 신뢰 악화로 이어지고 있다. 단순한 금액 수준의 차이를 넘어 보상 제도 설계 과정에서의 투명성과 경영진의 진정성이 노사 분쟁의 실질적 원인이 되고 있다.</div>
+      <div class="card-summary">카카오 노조가 440억원 규모의 사측 제안을 거부하며 성과급 구조 설계 과정에서의 기업 소통 부족을 비판하고 있으며, IT 업계 중심의 판교 지역에서 성과급 갈등이 확산되는 추세를 보이고 있다. 일방적인 보상안 제시보다 노조 및 직원과의 투명한 협의 과정이 합의도출의 핵심이라는 점을 시사한다.</div>
       
       <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
         <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">성과급 협상 과정에서 노조와의 소통 구조(안건 공개, 의사결정 투명성, 협상 일정 등)를 개선하기 위해 우리 팀이 취할 수 있는 구체적 조치는 무엇인가?</div>
+        <div class="card-disc-q" style="color:#D97706cc">성과급 및 보상 정책 개편 시 노조·직원 대표와의 협의 구조와 투명성 기준을 현재 수준에서 어떻게 강화하여 '소통 부족' 지적을 사전에 예방할 것인가?</div>
       </div>
       
     </div>
   
     <div class="card">
-      <a class="card-title" href="http://www.fnnews.com/news/202605111829207558" target="_blank">"경쟁사보다 성과급 턱없이 낮아" 카카오 노조도 파업 만지작 [성과급 ...</a>
-      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/11</span></div>
-      <div class="card-summary">IT 업계에서 성과급 불만이 개별 기업 차원을 넘어 산업 전반의 연대투쟁으로 확산될 우려가 제기되고 있으며, SK하이닉스·삼성전자 사례의 성공이 카카오 등 후발 기업의 노조 요구 강화를 부채질하고 있다. 경쟁사 비교를 통한 '상대적 박탈감' 해소가 새로운 보상 협상의 핵심 쟁점이 되었다.</div>
+      <a class="card-title" href="https://www.dailian.co.kr/news/view/1643512/?sc=Naver" target="_blank">삼성 노조 "8시 20분" 최후통첩 …결렬 땐 총파업 수순 불가피</a>
+      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/12</span></div>
+      <div class="card-summary">삼성 노조가 임금 협상에서 6.2% 인상과 5억원 규모의 특별보상을 요구하며 성과급 제도에 대한 강경한 입장을 보이고 있다. 글로벌 테크 기업들이 영업이익 비율을 성과급으로 고정 지급하는 사례가 드문 가운데, 국내 대기업의 성과급 체계 개편 압력이 지속되고 있어 우리 보상 정책 벤치마킹 필요성이 높아지고 있다.</div>
       
       <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
         <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">IT 업계 성과급 기준이 실제로 수렴·표준화되는 추세라면, 우리 기업이 선도 기업 수준 보상 기준을 조기 도입할 때의 이점과 위험을 어떻게 균형있게 평가할 것인가?</div>
+        <div class="card-disc-q" style="color:#D97706cc">우리 기업의 현재 성과급 상한 설정 기준(연봉 대비 %)과 글로벌 IT 기업들의 영업이익 비율 연동 방식 중 어느 모델을 참고하여 향후 보상 정책을 개선할 것인지 검토할 필요가 있는가?</div>
       </div>
       
     </div>
@@ -398,14 +403,15 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.etoday.co.kr/news/view/2583635" target="_blank">“연대보다 내 보상이 우선”…MZ 노조가 흔든 연대 문화 [삼성 노사협...</a>
       <div class="src-row-sm"><span class="src-badge">etoday.co.kr</span><span class="dt">05/12</span></div>
-      <div class="card-summary">MZ 세대 노조의 개인 보상 우선주의가 기업 성과급 제도 변화를 주도하고 있으며, 삼성전자의 '상소문 문화'와 SK하이닉스의 영업이익 10% 성과급 재원 약정 사례가 업계 보상 체계 전환의 신호가 되고 있다. IT 업계 인재 유입·유지를 위해 보상 제도의 투명성과 경쟁력 강화가 긴급 경영과제로 대두되었다.</div>
+      <div class="card-summary">삼성전자에서 MZ 세대 노조가 연대보다 개인 보상을 우선시하며 연봉·성과급 산정 기준을 공개적으로 제기하는 '상소문 문화'가 확산되고 있으며, SK하이닉스가 이에 대응해 영업이익의 10%를 성과급 재원으로 고정화한 사례를 제시했다. 보상 체계의 투명성과 개인별 차등성을 명확히 하지 않으면 조직 갈등과 이직 위험이 증가할 수 있다는 점을 주목해야 한다.</div>
       
       <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
         <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">우리 기업의 성과급 산정 기준이 노조·구성원의 투명성 요구를 충족할 수 있도록 현재 공식을 점검하고 개선하려면 어떤 우선순위로 접근해야 하는가?</div>
+        <div class="card-disc-q" style="color:#D97706cc">우리 기업에서 현재 보상 산정 기준과 프로세스가 충분히 투명하게 공개되고 있으며, MZ 직원들의 개인 보상 공정성 요구에 대응할 수 있는 수준인지 진단하고 개선 방안을 수립할 필요가 있는가?</div>
       </div>
       
     </div>
+  
   
   </div>
   </div>
@@ -426,16 +432,16 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
   <div class="featured-wrap" style="background:#7C3AED0a;border-left-color:#7C3AED">
     <div class="featured-inner">
       <span class="featured-badge" style="background:#7C3AED;color:#fff">⭐ Top Pick</span>
-      <a class="featured-title" href="https://www.it-b.co.kr/news/articleView.html?idxno=88135" target="_blank">[영림원CEO포럼] 글로벌 혁신 기업의 인사 관리 키워드는 '인게이지먼트...</a>
+      <a class="featured-title" href="https://www.yna.co.kr/view/AKR20260512094600017?input=1195m" target="_blank">[AI픽] AI 직원이 출근했다…SK하이닉스 'HR 혁명'</a>
       <div class="src-row">
-        <span class="src-badge">it-b.co.kr</span>
-        <span class="dt">05/11</span>
+        <span class="src-badge">n.news.naver.com</span>
+        <span class="dt">05/12</span>
       </div>
-      <div class="summary">글로벌 빅테크 기업들이 직원 인게이지먼트를 인재 경영의 핵심으로 삼고 있으며, 혁신 기업의 조직문화와 인사 관리 전략이 기업 성공과 밀접한 연관이 있음을 보여준다. 기술 플랫폼 기업으로서 글로벌 선진 사례를 벤치마킹하여 우리 조직의 인게이지먼트 전략을 강화할 필요가 있다.</div>
+      <div class="summary">SK하이닉스의 AI 직원 도입을 통한 HR 혁신 사례로, 무분별한 AI 기술 도입의 위험성과 함께 AI 시대에 더욱 강화되어야 할 HR의 전략적 역할을 강조한다. 우리 조직도 AI 기술 도입 시 목적-실행-성과 간의 일관성을 확보하는 실무 거버넌스가 필수임을 알 수 있다.</div>
       
       <div class="discussion" style="background:#7C3AED0d;border-color:#7C3AED30">
         <div class="disc-lbl" style="color:#7C3AED">💬 Discussion</div>
-        <div class="disc-q" style="color:#7C3AEDdd">1. 글로벌 혁신 기업의 높은 인게이지먼트 전략을 우리 조직에 적용하기 위해 현재 직원 만족도·충성도 현황을 어떻게 진단하고 개선 로드맵을 수립할 것인가?</div><div class="disc-q" style="color:#7C3AEDdd">2. 우리 조직의 조직문화와 인사 관리 체계가 AI 시대 인재 유입과 유지에 경쟁력이 있는지 평가할 지표는 무엇인가?</div>
+        <div class="disc-q" style="color:#7C3AEDdd">AI 기술 도입 결정 시, HR팀이 경영진과의 협의 단계에서 성공 기준(KPI), 변화관리 계획, 도입 후 평가 지표를 명확히 하기 위한 수립 프로세스를 갖추고 있는가?</div>
       </div>
       
     </div>
@@ -448,13 +454,25 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
   <div class="grid">
   
     <div class="card">
-      <a class="card-title" href="https://www.smartbizn.com/news/articleView.html?idxno=143656" target="_blank">원티드 '하이파이브 2026'서 AI 시대 일과 조직 변화 논의</a>
-      <div class="src-row-sm"><span class="src-badge">smartbizn.com</span><span class="dt">05/12</span></div>
-      <div class="card-summary">원티드 'hiFive 2026' 컨퍼런스에서 AI 시대 조직 변화에 따른 HR 역할의 확대를 논의했으며, 기업들이 기술 도입보다 인력의 적응 역량 강화에 중점을 두고 있음이 드러났다. 이는 AI 도입 시 단순 자동화를 넘어 조직 문화와 역량 개발에 투자해야 한다는 실무 방향을 제시한다.</div>
+      <a class="card-title" href="https://www.it-b.co.kr/news/articleView.html?idxno=88135" target="_blank">[영림원CEO포럼] 글로벌 혁신 기업의 인사 관리 키워드는 '인게이지먼트...</a>
+      <div class="src-row-sm"><span class="src-badge">it-b.co.kr</span><span class="dt">05/11</span></div>
+      <div class="card-summary">글로벌 혁신 기업들의 인사 관리 사례를 통해 '인게이지먼트'를 핵심 키워드로 제시하며 빅테크 기업의 인재 경영 전략을 분석한다. 우리 회사도 기술 기반 성장 기업으로서 글로벌 선진 사례의 인게이지먼트 전략을 우리 조직 특성에 맞게 벤치마킹할 필요가 있다.</div>
       
       <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
         <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#7C3AEDcc">우리 조직에서 AI 도입 시 기술 구축과 함께 인력 재교육 및 역할 전환 프로그램을 동시에 준비할 수 있는 로드맵이 있는가?</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">글로벌 빅테크 기업들의 인게이지먼트 전략(예: 커뮤니케이션, 성장 기회, 자율성 등)에서 우리 조직이 우선적으로 도입하거나 강화해야 할 항목은 무엇인가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.smartbizn.com/news/articleView.html?idxno=143656" target="_blank">원티드 '하이파이브 2026'서 AI 시대 일과 조직 변화 논의</a>
+      <div class="src-row-sm"><span class="src-badge">smartbizn.com</span><span class="dt">05/12</span></div>
+      <div class="card-summary">원티드 '하이파이브 2026' 행사에서 AI 시대 조직과 일의 변화를 다룬 사례로, HR 역할이 단순 채용·관리에서 조직 성장 전략으로 확대되는 추세를 보여준다. 우리 HR팀도 기술 도입 자체보다 조직 구성원의 변화 적응 방식과 전략적 접근을 고려해야 함을 시사한다.</div>
+      
+      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
+        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">현재 우리 조직의 HR 역할을 채용·관리 중심에서 조직 성장 전략으로 전환하기 위해 구체적으로 어떤 기능 또는 포지션의 역할 정의가 필요한가?</div>
       </div>
       
     </div>
@@ -462,27 +480,16 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="http://www.issuenbiz.com/news/articleView.html?idxno=76537" target="_blank">[AI픽] AI 직원 시대 개막…SK hynix, 인사 혁신 본격화</a>
       <div class="src-row-sm"><span class="src-badge">issuenbiz.com</span><span class="dt">05/12</span></div>
-      <div class="card-summary">SK hynix가 AI 에이전트를 HR 업무에 도입하며 인사 혁신을 추진 중이나, 전략 없는 AI 도입은 높은 투자 대비 실패 위험이 크다는 점을 강조한다. 우리 조직도 AI 도입 시 사용자 채택 전략과 명확한 비즈니스 목표 설정의 중요성을 검토해야 한다.</div>
+      <div class="card-summary">SK hynix의 AI 에이전트 기반 인사 혁신 사례를 통해 AI 도입 시 전략 부재로 인한 실패 위험을 지적하고 있다. 우리 HR팀이 향후 AI 인사 솔루션 도입 시 도입 자체보다 실제 조직 정착과 활용 전략을 먼저 수립해야 함을 보여준다.</div>
       
       <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
         <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#7C3AEDcc">HR 업무 자동화를 위해 AI 도입을 검토 중이라면, 도입 전 사용 부서의 요구사항 분석과 변화 관리 계획을 어떻게 수립할 것인가?</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">AI HR 솔루션을 도입할 시, 우리 조직이 실제 사용자 채택(adoption)을 확보하기 위해 사전에 검증하거나 계획해야 할 체크포인트는 무엇인가?</div>
       </div>
       
     </div>
   
-    <div class="card">
-      <a class="card-title" href="https://www.yna.co.kr/view/AKR20260512094600017?input=1195m" target="_blank">[AI픽] AI 직원이 출근했다…SK하이닉스 'HR 혁명'</a>
-      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/12</span></div>
-      <div class="card-summary">SK하이닉스의 AI 에이전트 HR 도입 사례를 통해 무분별한 AI 투자보다는 전략적 활용과 조직 준비 상태가 중요함을 강조한다. 이는 우리 조직이 AI HR 기술 도입 시 실제 운영 가능성과 조직 변화 수용도를 선행 검토해야 함을 시사한다.</div>
-      
-      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
-        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#7C3AEDcc">SK hynix 사례처럼 AI 인사 에이전트 도입을 추진한다면, 실제 사용 안착률을 높이기 위한 변화 관리 및 교육 전략은 무엇이어야 하는가?</div>
-      </div>
-      
-    </div>
-  
+  <div class="card-empty"></div>
   </div>
   </div>
 </div>
@@ -502,16 +509,16 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
   <div class="featured-wrap" style="background:#0891B20a;border-left-color:#0891B2">
     <div class="featured-inner">
       <span class="featured-badge" style="background:#0891B2;color:#fff">⭐ Top Pick</span>
-      <a class="featured-title" href="https://news.google.com/rss/articles/CBMinAFBVV95cUxQb2xKN2h6aVUzc1dPT3pzNnpoT0Q5X05LMEp0M2tqTVlnTGptTEViYmd3eWRqYUdfMG1sRHBkVlN3ZjFXT0F6M00xMXM4b1JFbzAzNWlLNDFFR0JaVU5xSFhNN0prUThtdV91Smx3TzNLbmZhczhIc1VnNHhQcWFDWGdjSzFoY3NIQU1vZ3RpaHNVWXFJWnRkRF9oUjE?oc=5" target="_blank">Charting the Future: GenAI & HR</a>
+      <a class="featured-title" href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOa2Z0cmt4YTRTSlUya013U2wzcl9QTXhrMHZzZk1yUlNuc1A4MlIycmU2X0lSc25Oa1ZINnk3QjRXanRUN0hjSE9wa3ZTejBsaWdpdEtTanFkdGJLeEJvOFRfQmFSYUttVGJ1LXNsbmhZSkp4SEhHYzIxRXZ4MHU1UEVaWnl1Q2xCdk1MU0tDb2tta2xETUtTMUFBSDV4ZlJueVlfUERURnQ2cTduMjduUWdfRHg4NmhLYlVUZTMyMS1hcUVpV0E?oc=5" target="_blank">Navigating the AI Employment Landscape in 2026: Considerations and Best Practices for Employers</a>
       <div class="src-row">
-        <span class="src-badge">ILR School Cornell</span>
-        <span class="dt">02/26</span>
+        <span class="src-badge">K&L Gates</span>
+        <span class="dt">02/03</span>
       </div>
-      <div class="summary">제넬라이(GenAI)와 HR의 미래 관계를 다루는 기사로, AI 기술이 인재 채용, 교육, 성과 관리 등 HR 핵심 영역에 어떻게 적용되고 있는지를 보여줍니다. 특히 IT·클라우드 기업인 우리가 AI 기반 HR 혁신을 내부적으로도 선도해야 한다는 점에서 전략적 시사점을 제공합니다.</div>
+      <div class="summary">2026년 AI 고용 환경에서의 고려사항 및 기업 최적 사례를 다루는 K&L Gates의 가이드 기사로, 법률·규제·실무 관점에서 AI 채용·배치·성과 평가 도입 시 주의할 점을 명확히 합니다. HR팀이 AI 도입 시 법적 리스크 관리 및 윤리 준칙을 수립할 때 직접 활용할 수 있는 실무 기준입니다.</div>
       
       <div class="discussion" style="background:#0891B20d;border-color:#0891B230">
         <div class="disc-lbl" style="color:#0891B2">💬 Discussion</div>
-        <div class="disc-q" style="color:#0891B2dd">우리 HR팀이 GenAI 도구를 채용, 온보딩, 성과 평가, 학습 개발 등 주요 HR 프로세스에 도입할 수 있는 파일럿 과제를 우선순위대로 선정하고 실행 계획을 수립할 필요가 있는가?</div>
+        <div class="disc-q" style="color:#0891B2dd">1. AI 기반 채용·평가 도구 도입 시 발생할 수 있는 차별, 투명성, 개인정보 관련 법적 리스크를 사전에 점검하기 위한 체크리스트를 마련할 필요가 있는가?</div><div class="disc-q" style="color:#0891B2dd">2. AI 도구 도입 전에 법무 및 컴플라이언스 팀과의 검토 프로세스를 표준화할 방안은 무엇인가?</div>
       </div>
       
     </div>
@@ -537,6 +544,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
       
     </div>
   
+  <div class="card-empty"></div><div class="card-empty"></div>
   </div>
   </div>
 </div>
