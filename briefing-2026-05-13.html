@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HR 뉴스 브리핑 2026-05-13</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;background:#edf1f7;color:#0f172a}
+
+/* ── 페이지 헤더 ── */
+.header{background:linear-gradient(135deg,#0f1117 0%,#1a1f2e 100%);border-bottom:1px solid #1e2538;padding:0}
+.header-inner{max-width:2000px;margin:0 auto;padding:26px 44px;display:flex;align-items:center;gap:32px}
+.header-left{flex:1}
+.header-eyebrow{font-size:10px;font-weight:700;letter-spacing:2.5px;color:#4f6ef7;text-transform:uppercase;margin-bottom:8px}
+.header-title{font-size:24px;font-weight:900;color:#f0f4ff;margin-bottom:6px;letter-spacing:-.5px}
+.header-meta{font-size:12px;color:#94a3b8;font-weight:500}
+.header-stats{display:flex;gap:12px}
+.stat-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 22px;text-align:center;backdrop-filter:blur(10px)}
+.stat-chip .num{font-size:24px;font-weight:900;color:#f1f5f9;line-height:1;letter-spacing:-1px}
+.stat-chip .lbl{font-size:10px;color:#94a3b8;margin-top:4px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+
+/* ── 레이아웃 ── */
+.container{max-width:2000px;margin:0 auto;padding:28px 44px}
+.section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch}
+
+/* ── 섹션 카드 ── */
+.section{border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.07),0 8px 24px rgba(0,0,0,.09);display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;overflow:hidden}
+.section-cat-header{padding:18px 22px 16px;position:relative;overflow:hidden;border-radius:0}
+.section-cat-header::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.06)}
+.sec-header-row{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.sec-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.sec-title{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.sec-cnt{margin-left:auto;background:rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;backdrop-filter:blur(4px)}
+
+/* ── 대표 기사 영역 ── (고정 높이로 좌우 섹션 통일) */
+.featured-wrap{padding:14px 18px;border-left:4px solid transparent;height:420px;display:flex;flex-direction:column}
+.featured-inner{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06);flex:1;overflow:hidden;display:flex;flex-direction:column}
+/* 하위기사 래퍼가 남은 공간을 채움 */
+.grid-wrap{flex:1;display:flex;flex-direction:column;min-height:0}
+.featured-badge{display:inline-flex;align-items:center;align-self:flex-start;gap:5px;font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;margin-bottom:12px;letter-spacing:.3px}
+.featured-title{font-size:16px;font-weight:800;color:#0f172a;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:9px;letter-spacing:-.3px;min-height:2.8em}
+.featured-title:hover{color:#4f6ef7}
+.src-row{display:flex;align-items:center;gap:7px;margin-bottom:11px}
+.src-badge{font-size:10px;font-weight:600;background:#f1f5f9;color:#64748b;border-radius:5px;padding:2px 8px;border:1px solid #e2e8f0}
+.dt{font-size:10px;color:#94a3b8;font-weight:500}
+.summary{font-size:13px;color:#374151;line-height:1.75;margin-bottom:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.discussion{border-radius:10px;padding:12px 15px;border:1px solid;margin-top:9px}
+.disc-lbl{font-size:10px;font-weight:800;margin-bottom:8px;letter-spacing:.8px;text-transform:uppercase}
+.disc-q{font-size:12px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.disc-q:last-child{border-bottom:none;padding-bottom:0}
+
+/* ── 하위 기사 그리드 ── */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:230px;align-content:start;gap:0;margin-top:1px}
+.card{background:#fff;padding:14px 20px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;display:flex;flex-direction:column;overflow:hidden;height:230px}
+.card:nth-child(even){border-right:none}
+.card-empty{height:230px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0}
+.card-empty:nth-child(even){border-right:none}
+.card-title{font-size:12.5px;font-weight:700;color:#1e293b;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:6px;letter-spacing:-.1px;min-height:2.7em}
+.card-title:hover{color:#4f6ef7}
+.src-row-sm{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.card-summary{font-size:11.5px;color:#64748b;line-height:1.65;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-disc{border-radius:7px;padding:8px 11px;border:1px solid;margin-top:auto}
+.card-disc-lbl{font-size:9px;font-weight:800;margin-bottom:5px;letter-spacing:.8px;text-transform:uppercase}
+.card-disc-q{font-size:11px;line-height:1.55;margin-bottom:3px;font-weight:500}
+.card-disc-q:last-child{margin-bottom:0}
+
+/* ── 푸터 ── */
+.footer{background:#edf1f7;border-top:1px solid #dde3ec;padding:0}
+.footer-inner{max-width:2000px;margin:0 auto;padding:20px 44px;font-size:11px;color:#94a3b8;display:flex;justify-content:space-between;align-items:center;font-weight:500;letter-spacing:.3px}
+
+@media(max-width:1100px){.section-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.header-inner,.container,.footer-inner{padding:20px 16px}.header-stats{display:none}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-eyebrow">Daily HR Briefing</div>
+      <div class="header-title">📋 HR 뉴스 브리핑</div>
+      <div class="header-meta">2026-05-13 &nbsp;·&nbsp; 오전 9:00 자동 발행</div>
+    </div>
+    <div class="header-stats">
+      <div class="stat-chip">
+        <div class="num">19</div>
+        <div class="lbl">Articles</div>
+      </div>
+      <div class="stat-chip">
+        <div class="num">5</div>
+        <div class="lbl">Topics</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+<div class="section-grid">
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#4F46E5,#4F46E5cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">👥</div>
+      <span class="sec-title">채용 / 인재관리</span>
+      <span class="sec-cnt">3건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#4F46E50a;border-left-color:#4F46E5">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#4F46E5;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.kyosu.net/news/articleView.html?idxno=205349" target="_blank">대기업 절반 이상이 'AI 면접' 도입 "첫인상에 속지 않는다"</a>
+      <div class="src-row">
+        <span class="src-badge">kyosu.net</span>
+        <span class="dt">05/07</span>
+      </div>
+      <div class="summary">국내 대기업 절반 이상이 AI 면접 솔루션을 도입하여 객관적 평가를 추구하고 있으나, 아마존의 AI 채용 시스템 폐기 사례처럼 알고리즘 편향(성차별 등) 위험이 존재한다. 우리 회사가 AI 면접 도입을 검토 중이라면 법적·윤리적 리스크와 공정성 검증 프레임을 사전에 확보해야 한다.</div>
+      
+      <div class="discussion" style="background:#4F46E50d;border-color:#4F46E530">
+        <div class="disc-lbl" style="color:#4F46E5">💬 Discussion</div>
+        <div class="disc-q" style="color:#4F46E5dd">1. AI 면접 솔루션 도입 시 성별·연령·장애 등 보호 특성에 대한 판별 오류(bias)를 사전에 검증하고, 문제 발생 시 책임 귀속·보정 방안을 사전에 정의할 필요가 있는가?</div><div class="disc-q" style="color:#4F46E5dd">2. 현재 AI 면접을 운영 중이라면 정기적인 공정성 감시(fairness audit) 및 지원자 민원 처리 프로세스가 충분히 구비되어 있는가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="http://www.newsprime.co.kr/news/article.html?no=733032" target="_blank">현대모비스, 협력사 SW 생태계 넓힌다…교육부터 채용까지</a>
+      <div class="src-row-sm"><span class="src-badge">newsprime.co.kr</span><span class="dt">05/11</span></div>
+      <div class="card-summary">현대모비스가 협력사의 SW 인재 부족 문제를 해결하기 위해 교육부터 채용까지 통합 지원하는 부트캠프 프로그램을 운영하고 있다. IT 기업과의 인재 경쟁 심화 속에서 공급망 전체의 인재 생태계를 구축하는 새로운 HR 전략 사례로, 우리 회사도 협력사·파트너사 인재 확보 전략 수립 시 참고할 수 있다.</div>
+      
+      <div class="card-disc" style="background:#4F46E508;border-color:#4F46E525">
+        <div class="card-disc-lbl" style="color:#4F46E5">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#4F46E5cc">우리 회사가 협력사나 에코시스템 파트너의 인재 부족 문제 해결을 위해 직접 교육·채용 프로그램을 운영할 필요가 있는가, 그렇다면 어느 분야·규모부터 시작할 것인가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://zdnet.co.kr/view/?no=20260505150038" target="_blank">이랜서, '청년 일자리 지원' 선정…AI 인재 육성 본격화</a>
+      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/06</span></div>
+      <div class="card-summary">이랜서가 정부 청년 일자리 지원 사업에 선정되어 AI 인재 육성을 본격화하고 있으며, 이는 산업 구조 변화와 기업 경쟁력 강화 전략의 신호로 평가받고 있다. 플랫폼·생태계 기업으로서 인재 육성을 통한 경쟁력 확보 사례로, 우리 회사의 AI·클라우드 인재 육성 정책 수립 시 참고할 수 있다.</div>
+      
+      <div class="card-disc" style="background:#4F46E508;border-color:#4F46E525">
+        <div class="card-disc-lbl" style="color:#4F46E5">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#4F46E5cc">우리 회사가 정부 인재 육성 사업(청년 일자리, 디지털 혁신 인재 양성 등)에 참여하여 AI·클라우드 인재 확보와 동시에 공공성을 강화할 기회가 있는가?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div><div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#DC2626,#DC2626cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">⚖️</div>
+      <span class="sec-title">노무 / 법령</span>
+      <span class="sec-cnt">4건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#DC26260a;border-left-color:#DC2626">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#DC2626;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.businesspost.co.kr/BP?command=article_view&num=436688" target="_blank">[Who Is ?] 김영훈 고용노동부 장관</a>
+      <div class="src-row">
+        <span class="src-badge">businesspost.co.kr</span>
+        <span class="dt">05/12</span>
+      </div>
+      <div class="summary">신임 고용노동부 장관이 프리랜서 위장 계약(가짜 3.3 계약)을 위법 행위로 규정하고, 중대재해 발생 기업에 대한 감시를 강화하는 정책 기조를 보이고 있습니다. 우리 HR팀은 특수고용·프리랜서 계약의 적정성 재검토와 중대재해 예방 체계 강화가 즉각적인 정책 우선순위임을 인식하고 대응해야 합니다.</div>
+      
+      <div class="discussion" style="background:#DC26260d;border-color:#DC262630">
+        <div class="disc-lbl" style="color:#DC2626">💬 Discussion</div>
+        <div class="disc-q" style="color:#DC2626dd">1. 현재 우리 회사의 프리랜서, 용역, 특수고용 계약 현황을 전수 조사하여 실질적 고용관계에 해당하면서 형식상 독립계약자로 분류된 사례가 있는지 파악하고 시정 계획을 수립할 필요는 없는가?</div><div class="disc-q" style="color:#DC2626dd">2. 중대재해처벌법 시행 이후 안전보건 감시 강화에 대응하기 위해 우리 회사의 현재 중대재해 예방 체계(안전관리 조직, 정기 감시, 시정 조치)를 평가하고 보강할 구체적인 액션 플랜은 무엇인가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://www.pressian.com/pages/articles/2026051218190628788?utm_source=naver&utm_medium=search" target="_blank">급변하는 노동환경 대응…노사발전재단 전북노사상생센터, 실무교육 마...</a>
+      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/12</span></div>
+      <div class="card-summary">노동조합 및 노동관계조정법(노란봉투법) 시행, 주 4.5일제 시범사업, 5인 미만 사업장 관련 법령 개정에 대응하기 위한 실무교육이 추진되고 있습니다. 우리 HR팀은 올해 시행되는 주요 노동법 개정사항과 판례, 산업안전 이슈에 대한 정확한 이해를 통해 기업 실무 대응방안을 사전에 마련해야 합니다.</div>
+      
+      <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
+        <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#DC2626cc">노란봉투법 시행에 따른 교섭 구조 변화와 주 4.5일제 시범사업 참여 여부를 검토하기 위해 우리 회사의 현재 노사관계 체계와 근무제도를 어떻게 정리하고 준비할 것인가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.idomin.com/news/articleView.html?idxno=2005491" target="_blank">원청 교섭 책임 없인 특수고용노동자 보호도 없다</a>
+      <div class="src-row-sm"><span class="src-badge">idomin.com</span><span class="dt">05/11</span></div>
+      <div class="card-summary">개정 노동조합법(3월 시행)에서 특수고용노동자 보호의 핵심은 '실질적이고 구체적인 지배·결정'을 하는 원청이 근로계약 당사자로서 교섭 책임을 져야 한다는 것입니다. 우리 HR팀은 하청·위수탁 구조에서 실질적 지배관계 판단 기준을 명확히 하고, 특수고용 노동자 권리 보장 체계를 정비해야 합니다.</div>
+      
+      <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
+        <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#DC2626cc">우리 회사가 원청으로서 하청·위수탁 업체의 특수고용노동자들에 대해 '실질적이고 구체적인 지배·결정'을 하고 있는 영역이 어디인지 파악하고, 교섭 당사자로서의 책임을 어느 범위까지 인정하고 대응할 것인가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://sjbnews.com/news/news.php?number=878099" target="_blank">상생의 노사관계 확산 위한 노사상생협력교육 실시</a>
+      <div class="src-row-sm"><span class="src-badge">sjbnews.com</span><span class="dt">05/10</span></div>
+      <div class="card-summary">중소기업들이 노동법, 노사관계, 산업안전 등 현장 현안에 대한 교육 접근성 부족으로 법령 변화 대응에 어려움을 겪고 있는 상황입니다. 우리 HR팀도 변화하는 노동법과 산업안전 이슈에 신속하게 대응하기 위해 주기적인 실무교육과 지식 업데이트 체계를 갖춰야 합니다.</div>
+      
+      <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
+        <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#DC2626cc">우리 회사의 HR팀과 현장 관리자들을 대상으로 최신 노동법, 노사관계, 산업안전 이슈에 대한 정기적인 교육을 어떤 주기와 형식으로 제도화할 것인가?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#059669,#059669cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">🏢</div>
+      <span class="sec-title">조직문화 / 리더십</span>
+      <span class="sec-cnt">3건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#0596690a;border-left-color:#059669">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#059669;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.gasnews.com/news/articleView.html?idxno=125098" target="_blank">[전문가 기고] 중대재해 제로를 향한 패러다임의 전환 규제 준수 넘어 ...</a>
+      <div class="src-row">
+        <span class="src-badge">gasnews.com</span>
+        <span class="dt">05/13</span>
+      </div>
+      <div class="summary">중대재해 제로를 실현하기 위해서는 규제 준수 수준의 소극적 안전관리를 넘어 조직 의지와 가치관을 진단·개선하는 체계적 접근이 필요하다는 패러다임 전환을 제시한다. HR 팀이 안전 관리를 리더십·조직문화 영역으로 확대하고 주도적으로 개입해야 하는 전략적 근거를 제공한다.</div>
+      
+      <div class="discussion" style="background:#0596690d;border-color:#05966930">
+        <div class="disc-lbl" style="color:#059669">💬 Discussion</div>
+        <div class="disc-q" style="color:#059669dd">1. 안전 관리의 주도권이 현재 어느 부서에 있으며, HR 팀이 조직 가치관과 리더십 강화를 통한 안전문화 개선에 주도적으로 참여할 수 있도록 체계를 재정비할 필요가 있는가?</div><div class="disc-q" style="color:#059669dd">2. 현재 우리 조직의 안전 경영 평가 등급이 높더라도 실제 조직 의식과 행동이 얼마나 일치하고 있는지 진단할 수 있는 평가 도구나 프로세스를 도입할 계획이 있는가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://www.viva100.com/article/20260512501167" target="_blank">행복청, ‘해피브릿지 2기’로 조직 혁신 가속화</a>
+      <div class="src-row-sm"><span class="src-badge">viva100.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">행복청의 '해피브릿지 2기'는 임직원 참여 활성화, 불합리한 관행 개선, 현장 아이디어 발굴을 중심으로 조직혁신을 추진하며, 민간기업 및 타 공공기관의 우수사례를 벤치마킹하는 구체적 사례를 제시한다. 조직혁신 프로그램 설계 시 포함해야 할 핵심 요소와 외부 벤치마킹 방법론을 참고할 수 있다.</div>
+      
+      <div class="card-disc" style="background:#05966908;border-color:#05966925">
+        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#059669cc">우리 조직에서 현재 진행 중인 조직혁신 이니셔티브가 임직원 주도적 참여와 현장 아이디어 발굴 메커니즘을 충분히 포함하고 있으며, 정기적으로 벤치마킹할 외부 우수사례 수집 체계를 구축하고 있는가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="http://www.wsobi.com/news/articleView.html?idxno=311790" target="_blank">기업들, 안전 역량 인정받아</a>
+      <div class="src-row-sm"><span class="src-badge">wsobi.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">BRCGS의 식품안전 특화 조직문화 진단을 통해 기업들이 현장 중심의 위험성평가와 실행력 강화를 추진하고 있다. 안전 관리를 조직문화 관점에서 체계적으로 접근하는 사례로, 우리 조직의 안전문화 진단 및 개선 프로그램 설계에 참고할 가치가 있다.</div>
+      
+      <div class="card-disc" style="background:#05966908;border-color:#05966925">
+        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#059669cc">현재 우리 조직의 안전 관리가 규제 준수 수준에 머물고 있는지, 아니면 조직문화 차원의 안전의식 개선까지 포함하고 있는지 진단하고, 필요시 외부 진단 도구 도입을 검토할 준비가 되어 있는가?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div><div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#D97706,#D97706cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">💰</div>
+      <span class="sec-title">보상 / 복리후생</span>
+      <span class="sec-cnt">5건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#D977060a;border-left-color:#D97706">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#D97706;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.pointe.co.kr/news/articleView.html?idxno=79402" target="_blank">삼성전자 사후조정 끝내 결렬… 사측 "노조 경직된 태도 유감"</a>
+      <div class="src-row">
+        <span class="src-badge">pointe.co.kr</span>
+        <span class="dt">05/13</span>
+      </div>
+      <div class="summary">삼성전자 사측과 노조의 사후조정이 성과급 제도 개선 등 핵심 쟁점에서 결렬되었으며, 주 4.5일제 도입을 둘러싼 대안도 제시되고 있다. 대규모 IT 기업의 노사 갈등 현황은 우리 회사의 유연근무·근로시간 정책과 보상 제도 설계에 직접적인 시사점을 제공한다.</div>
+      
+      <div class="discussion" style="background:#D977060d;border-color:#D9770630">
+        <div class="disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="disc-q" style="color:#D97706dd">1. 삼성전자 사례에서 나타난 성과급 제도화 문제와 주 4.5일제 논쟁을 고려할 때, 우리 회사의 유연근무제와 근로시간 단축 정책 도입 시기와 방식을 재검토해야 하는가?</div><div class="disc-q" style="color:#D97706dd">2. 성과급의 예측가능한 제도화가 노사 갈등을 완화할 수 있다는 점을 감안하여, 우리 회사의 성과급 지급 기준을 명확하고 투명하게 정책화할 필요가 있는가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="http://www.4th.kr/news/articleView.html?idxno=2111670" target="_blank">총파업 D-8..삼성전자 "최악 사태 막겠다"</a>
+      <div class="src-row-sm"><span class="src-badge">4th.kr</span><span class="dt">05/13</span></div>
+      <div class="card-summary">삼성전자 노조가 성과급 제도 개선을 핵심 요구사항으로 제시하며 총파업을 준비 중이며, 구체적으로 DS 부문 영업이익의 15% 고정 배분과 현행 연봉 50% 상한선 폐지를 주장하고 있다. IT·반도체 업계의 성과급 제도화 논쟁이 심화되고 있어 우리 회사의 보상체계 설계 방향과 경쟁사 대비 경쟁력을 재검토할 필요가 있다.</div>
+      
+      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
+        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#D97706cc">우리 회사 보상체계에서 성과급의 예측가능성과 제도화 수준이 업계 기준 대비 적절한 수준인지 진단하고, 필요시 개선 방향을 검토해야 하는가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.ebn.co.kr/news/articleView.html?idxno=1708562" target="_blank">삼성전자 총파업 리스크…주주 vs 직원 이해충돌 불붙었다</a>
+      <div class="src-row-sm"><span class="src-badge">ebn.co.kr</span><span class="dt">05/13</span></div>
+      <div class="card-summary">삼성전자 노조의 성과급 상한선 폐지와 영업이익 15% 고정 배분 요구가 주주와 직원 간 이해충돌로 표출되고 있으며, IT 업계 전반에서 보상제도의 공정성과 제도화를 둘러싼 갈등이 확산되고 있다. 우리 회사도 향후 유사한 노사 갈등에 대비하여 성과급 제도의 투명성과 제도화된 운영 방식을 미리 정비할 필요가 있다.</div>
+      
+      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
+        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#D97706cc">현재 우리 보상체계에서 성과급의 산정 기준, 배분 비율, 지급 규모의 명확한 제도화 수준을 점검하고, 필요한 개선사항을 도출해야 하는가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.bloter.net/news/articleView.html?idxno=662124" target="_blank">메디톡스, 연간 퇴사율 23%…인력 이탈 경고등</a>
+      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">메디톡스의 연간 퇴사율이 23%에 달하며, 3~4% 수준의 저조한 연봉 인상률과 보상 체계의 불충분성이 직원 이탈의 주요 원인으로 지목되고 있다. 보상 경쟁력 부족이 인력 이탈로 직결되는 사례로, 우리 회사의 보상 수준 적정성과 인력 유지 전략을 점검해야 할 시점이다.</div>
+      
+      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
+        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#D97706cc">우리 회사의 주요 직급별·부문별 연간 퇴사율 및 퇴사 사유를 분석하여, 보상 수준의 부족이 이탈의 주요 요인인지 파악하고 필요시 개선 방향을 수립해야 하는가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.straightnews.co.kr/news/articleView.html?idxno=302294" target="_blank">"제도화 없인 불가" vs "경직된 요구"…삼성전자 총파업 현실화 기로</a>
+      <div class="src-row-sm"><span class="src-badge">straightnews.co.kr</span><span class="dt">05/13</span></div>
+      <div class="card-summary">삼성전자 노조가 '성과급 제도화 부재'를 협상 결렬의 핵심 이유로 제시하며, 일회성 인센티브가 아닌 장기적으로 제도화된 성과 공유 구조를 요구하고 있다. IT 업계에서 성과급의 제도화된 운영 방식이 HR 실무의 핵심 이슈로 대두되어, 우리 회사도 성과급 제도의 투명성과 장기 지속성을 강화해야 한다.</div>
+      
+      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
+        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#D97706cc">현재 우리 성과급 제도가 일회성 또는 재량적 성격인지, 아니면 명확한 기준과 주기로 제도화되어 있는지 진단하고, 필요시 제도화 수준을 높이기 위한 정책 개편을 추진해야 하는가?</div>
+      </div>
+      
+    </div>
+  
+  
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#7C3AED,#7C3AEDcc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">🤖</div>
+      <span class="sec-title">HR Tech</span>
+      <span class="sec-cnt">4건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#7C3AED0a;border-left-color:#7C3AED">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#7C3AED;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.yna.co.kr/view/AKR20260512094600017?input=1195m" target="_blank">[AI픽] AI 직원이 출근했다…SK하이닉스 'HR 혁명'</a>
+      <div class="src-row">
+        <span class="src-badge">n.news.naver.com</span>
+        <span class="dt">05/12</span>
+      </div>
+      <div class="summary">SK하이닉스의 AI 직원 도입 사례에서 무분별한 투자 대신 전략적 도입의 중요성을 강조하고 있으며, AI 시대일수록 HR의 전략적 역할이 더욱 중요함을 보여준다. 우리도 AI 도입 효과를 최대화하기 위한 HR의 중간 관리자 역할과 변화 관리 전략을 사전에 수립해야 한다.</div>
+      
+      <div class="discussion" style="background:#7C3AED0d;border-color:#7C3AED30">
+        <div class="disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="disc-q" style="color:#7C3AEDdd">SK하이닉스의 AI 직원 도입 실패 사례에서 배울 점을 바탕으로, 우리 조직이 HR AI 시스템 도입 시 조직 수용성을 높이고 실제 업무 적용률을 확보하기 위한 변화관리 전략은 어떻게 구성할 것인가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://www.it-b.co.kr/news/articleView.html?idxno=88135" target="_blank">[영림원CEO포럼] 글로벌 혁신 기업의 인사 관리 키워드는 '인게이지먼트...</a>
+      <div class="src-row-sm"><span class="src-badge">it-b.co.kr</span><span class="dt">05/11</span></div>
+      <div class="card-summary">글로벌 혁신 기업들의 인사 관리 핵심 키워드가 '인게이지먼트'임을 다루고 있으며, 빅테크 기업들의 조직문화 사례를 통해 우리가 벤치마킹할 수 있는 인재 경영 전략을 제시한다. 급변하는 AI 시대에 직원 몰입도와 조직문화 강화가 경쟁력이 되는 만큼, 우리도 글로벌 선진 사례를 참고하여 인게이지먼트 전략을 수립할 필요가 있다.</div>
+      
+      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
+        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">글로벌 혁신 기업들의 인게이지먼트 전략이 구체적으로 무엇인지 파악하고, 이를 우리 조직의 문화와 특성에 맞춰 어떻게 적용할 것인가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.smartbizn.com/news/articleView.html?idxno=143656" target="_blank">원티드 '하이파이브 2026'서 AI 시대 일과 조직 변화 논의</a>
+      <div class="src-row-sm"><span class="src-badge">smartbizn.com</span><span class="dt">05/12</span></div>
+      <div class="card-summary">원티드 하이파이브 2026에서 AI 시대 인사조직 변화가 논의되었으며, HR 역할이 채용·관리 중심에서 조직 성장 전략으로 확대되고 있음을 보여주었다. 우리 HR팀도 기술 도입 자체보다 조직의 변화 적응 방식과 실무 중심의 전략 수립에 집중해야 하는 시점임을 시사한다.</div>
+      
+      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
+        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">우리 조직에서 현재 추진 중인 AI 도입 사업이 실제 업무 효율성과 조직 성장으로 이어지도록, HR팀의 역할과 책임을 어떻게 재정의하고 액션 플랜을 세울 것인가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="http://www.issuenbiz.com/news/articleView.html?idxno=76537" target="_blank">[AI픽] AI 직원 시대 개막…SK hynix, 인사 혁신 본격화</a>
+      <div class="src-row-sm"><span class="src-badge">issuenbiz.com</span><span class="dt">05/12</span></div>
+      <div class="card-summary">SK hynix가 AI 에이전트를 인사 혁신에 활용하면서, 기업들이 막대한 투자를 하고도 실제 활용도가 낮은 사례가 있음을 지적하고 있다. AI 도입 시 전략적 설계와 조직 준비 없이는 실패할 수 있다는 교훈을 제공하므로, 우리 조직의 HR Tech 도입 시 성공 요인을 사전에 검토해야 한다.</div>
+      
+      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
+        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">AI 인사 시스템 도입 시 높은 도입률과 실질적 활용을 보장하기 위해 사전에 점검하고 준비해야 할 핵심 요소(조직 저항, 변화관리, 사용자 교육 등)는 무엇인가?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+</div>
+</div>
+<div class="footer">
+  <div class="footer-inner">
+    <span>HR 뉴스 브리핑 &nbsp;·&nbsp; AUTO-GENERATED</span>
+    <span>2026-05-13</span>
+  </div>
+</div>
+</body></html>
