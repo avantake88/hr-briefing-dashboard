@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HR 뉴스 브리핑 2026-05-15</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;background:#edf1f7;color:#0f172a}
+
+/* ── 페이지 헤더 ── */
+.header{background:linear-gradient(135deg,#0f1117 0%,#1a1f2e 100%);border-bottom:1px solid #1e2538;padding:0}
+.header-inner{max-width:2000px;margin:0 auto;padding:26px 44px;display:flex;align-items:center;gap:32px}
+.header-left{flex:1}
+.header-eyebrow{font-size:10px;font-weight:700;letter-spacing:2.5px;color:#4f6ef7;text-transform:uppercase;margin-bottom:8px}
+.header-title{font-size:24px;font-weight:900;color:#f0f4ff;margin-bottom:6px;letter-spacing:-.5px}
+.header-meta{font-size:12px;color:#94a3b8;font-weight:500}
+.header-stats{display:flex;gap:12px}
+.stat-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 22px;text-align:center;backdrop-filter:blur(10px)}
+.stat-chip .num{font-size:24px;font-weight:900;color:#f1f5f9;line-height:1;letter-spacing:-1px}
+.stat-chip .lbl{font-size:10px;color:#94a3b8;margin-top:4px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+
+/* ── 레이아웃 ── */
+.container{max-width:2000px;margin:0 auto;padding:28px 44px}
+.section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch}
+
+/* ── 섹션 카드 ── */
+.section{border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.07),0 8px 24px rgba(0,0,0,.09);display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;overflow:hidden}
+.section-cat-header{padding:18px 22px 16px;position:relative;overflow:hidden;border-radius:0}
+.section-cat-header::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.06)}
+.sec-header-row{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.sec-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.sec-title{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.sec-cnt{margin-left:auto;background:rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;backdrop-filter:blur(4px)}
+
+/* ── 대표 기사 영역 ── (고정 높이로 좌우 섹션 통일) */
+.featured-wrap{padding:14px 18px;border-left:4px solid transparent;height:420px;display:flex;flex-direction:column}
+.featured-inner{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06);flex:1;overflow:hidden;display:flex;flex-direction:column}
+/* 하위기사 래퍼가 남은 공간을 채움 */
+.grid-wrap{flex:1;display:flex;flex-direction:column;min-height:0}
+.featured-badge{display:inline-flex;align-items:center;align-self:flex-start;gap:5px;font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;margin-bottom:12px;letter-spacing:.3px}
+.featured-title{font-size:16px;font-weight:800;color:#0f172a;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:9px;letter-spacing:-.3px;min-height:2.8em}
+.featured-title:hover{color:#4f6ef7}
+.src-row{display:flex;align-items:center;gap:7px;margin-bottom:11px}
+.src-badge{font-size:10px;font-weight:600;background:#f1f5f9;color:#64748b;border-radius:5px;padding:2px 8px;border:1px solid #e2e8f0}
+.dt{font-size:10px;color:#94a3b8;font-weight:500}
+.summary{font-size:13px;color:#374151;line-height:1.75;margin-bottom:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.discussion{border-radius:10px;padding:12px 15px;border:1px solid;margin-top:9px}
+.disc-lbl{font-size:10px;font-weight:800;margin-bottom:8px;letter-spacing:.8px;text-transform:uppercase}
+.disc-q{font-size:12px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.disc-q:last-child{border-bottom:none;padding-bottom:0}
+
+/* ── 하위 기사 그리드 ── */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:230px;align-content:start;gap:0;margin-top:1px}
+.card{background:#fff;padding:14px 20px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;display:flex;flex-direction:column;overflow:hidden;height:230px}
+.card:nth-child(even){border-right:none}
+.card-empty{height:230px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0}
+.card-empty:nth-child(even){border-right:none}
+.card-title{font-size:12.5px;font-weight:700;color:#1e293b;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:6px;letter-spacing:-.1px;min-height:2.7em}
+.card-title:hover{color:#4f6ef7}
+.src-row-sm{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.card-summary{font-size:11.5px;color:#64748b;line-height:1.65;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-disc{border-radius:7px;padding:8px 11px;border:1px solid;margin-top:auto}
+.card-disc-lbl{font-size:9px;font-weight:800;margin-bottom:5px;letter-spacing:.8px;text-transform:uppercase}
+.card-disc-q{font-size:11px;line-height:1.55;margin-bottom:3px;font-weight:500}
+.card-disc-q:last-child{margin-bottom:0}
+
+/* ── 푸터 ── */
+.footer{background:#edf1f7;border-top:1px solid #dde3ec;padding:0}
+.footer-inner{max-width:2000px;margin:0 auto;padding:20px 44px;font-size:11px;color:#94a3b8;display:flex;justify-content:space-between;align-items:center;font-weight:500;letter-spacing:.3px}
+
+@media(max-width:1100px){.section-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.header-inner,.container,.footer-inner{padding:20px 16px}.header-stats{display:none}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-eyebrow">Daily HR Briefing</div>
+      <div class="header-title">📋 HR 뉴스 브리핑</div>
+      <div class="header-meta">2026-05-15 &nbsp;·&nbsp; 오전 9:00 자동 발행</div>
+    </div>
+    <div class="header-stats">
+      <div class="stat-chip">
+        <div class="num">16</div>
+        <div class="lbl">Articles</div>
+      </div>
+      <div class="stat-chip">
+        <div class="num">5</div>
+        <div class="lbl">Topics</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+<div class="section-grid">
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#4F46E5,#4F46E5cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">👥</div>
+      <span class="sec-title">채용 / 인재관리</span>
+      <span class="sec-cnt">2건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#4F46E50a;border-left-color:#4F46E5">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#4F46E5;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.kyosu.net/news/articleView.html?idxno=205349" target="_blank">대기업 절반 이상이 'AI 면접' 도입 "첫인상에 속지 않는다"</a>
+      <div class="src-row">
+        <span class="src-badge">kyosu.net</span>
+        <span class="dt">05/07</span>
+      </div>
+      <div class="summary">대기업 절반 이상이 AI 면접 도입을 확대 중이며, 표정·시선·답변 구조 등을 분석하는 기술을 활용하고 있으나 아마존의 AI 채용 폐기 사례처럼 편향성 문제가 지속적으로 제기되고 있다. 채용 공정성과 법적 리스크를 고려한 AI 면접 도입 기준을 정립해야 하는 시점이다.</div>
+      
+      <div class="discussion" style="background:#4F46E50d;border-color:#4F46E530">
+        <div class="disc-lbl" style="color:#4F46E5">💬 Discussion</div>
+        <div class="disc-q" style="color:#4F46E5dd">1. AI 면접 도입 시 성별·나이·장애 등의 차별적 편향 문제를 사전에 방지하고 법적 리스크를 관리하기 위해 우리 회사가 점검하거나 수립해야 할 가이드라인과 검증 프로세스는 무엇인가?</div><div class="disc-q" style="color:#4F46E5dd">2. AI 면접이 채용 효율성을 높일 수 있는 반면 후보자 경험 악화 및 신뢰도 저하 위험이 있는데, 우리 기업의 브랜드 이미지와 채용 성과를 고려했을 때 도입 범위와 방식을 어떻게 설정할 것인가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://www.dailysecu.com/news/articleView.html?idxno=206698" target="_blank">"북한 해커, 이제 사람과 공급망까지 노린다"…가상자산 공격 '오프라인...</a>
+      <div class="src-row-sm"><span class="src-badge">dailysecu.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">북한 해커들이 LinkedIn의 허위 채용 공고를 이용해 기업 내부 엔지니어에게 접근하고 위조 신원으로 원격 근무 직원으로 침투하는 사이버 공격 수법이 확인되었다. IT 기업의 채용 과정과 원격 근무 관리 체계에 대한 보안 강화가 시급한 실무 이슈이다.</div>
+      
+      <div class="card-disc" style="background:#4F46E508;border-color:#4F46E525">
+        <div class="card-disc-lbl" style="color:#4F46E5">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#4F46E5cc">우리 회사의 채용 공고 게시, 신원 확인, 원격 근무자 온보딩 프로세스에서 보안 검증 단계를 강화할 구체적인 대책(신원 확인 강화, 배경 조사, 기술 검증 등)은 무엇인가?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div><div class="card-empty"></div><div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#DC2626,#DC2626cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">⚖️</div>
+      <span class="sec-title">노무 / 법령</span>
+      <span class="sec-cnt">2건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#DC26260a;border-left-color:#DC2626">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#DC2626;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.businesspost.co.kr/BP?command=article_view&num=436688" target="_blank">[Who Is ?] 김영훈 고용노동부 장관</a>
+      <div class="src-row">
+        <span class="src-badge">businesspost.co.kr</span>
+        <span class="dt">05/12</span>
+      </div>
+      <div class="summary">김영훈 고용노동부 장관이 프리랜서로 위장한 '가짜 3.3 계약'을 명백한 위법 행위로 규정하고, 중대재해처벌법 시행 이후 강화된 안전 규제 기조를 보이고 있습니다. 당사는 특수고용·프리랜서 계약의 합법성 검토 및 중대재해 예방 체계 고도화가 필수적입니다.</div>
+      
+      <div class="discussion" style="background:#DC26260d;border-color:#DC262630">
+        <div class="disc-lbl" style="color:#DC2626">💬 Discussion</div>
+        <div class="disc-q" style="color:#DC2626dd">1. 현재 당사의 프리랜서·특수고용 계약 관행이 '가짜 3.3 계약'으로 적발될 위험이 있는지 법무·HR이 공동으로 전수조사하고 개선 계획을 수립해야 하는가?</div><div class="disc-q" style="color:#DC2626dd">2. 중대재해처벌법 강화 추세에 대응하여 안전관리 조직 확대, 경영진 안전 교육, 현장 점검 체계 강화 등의 투자 규모를 올해 내에 결정해야 하는가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://www.idomin.com/news/articleView.html?idxno=2005491" target="_blank">원청 교섭 책임 없인 특수고용노동자 보호도 없다</a>
+      <div class="src-row-sm"><span class="src-badge">idomin.com</span><span class="dt">05/11</span></div>
+      <div class="card-summary">3월 시행된 개정 노동조합법에 따라 원청이 노동조건을 실질적·구체적으로 지배·결정하면 근로계약 당사자로 간주되어 교섭 책임이 발생합니다. 특수고용노동자를 활용하는 기업은 원청으로서의 법적 책임 범위를 명확히 파악하고 노사관계 구조를 재정비해야 합니다.</div>
+      
+      <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
+        <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#DC2626cc">당사가 하청업체의 특수고용노동자 채용·노동조건에 실질적으로 개입하고 있는 영역을 파악하고, 원청 책임으로 인정될 수 있는 사항이 있는지 사전 검토하는 프로세스를 구축했는가?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div><div class="card-empty"></div><div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#059669,#059669cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">🏢</div>
+      <span class="sec-title">조직문화 / 리더십</span>
+      <span class="sec-cnt">4건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#0596690a;border-left-color:#059669">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#059669;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.joongangenews.com/news/articleView.html?idxno=519233" target="_blank">"출산·육아 지원 실제 변화 만들었다"...크래프톤 출산 정책 성과</a>
+      <div class="src-row">
+        <span class="src-badge">joongangenews.com</span>
+        <span class="dt">05/14</span>
+      </div>
+      <div class="summary">크래프톤이 출산·육아 지원 정책(심리상담, 근무환경 개선 등)을 통해 임직원의 업무 몰입도와 일·가정 양립 만족도를 실질적으로 향상시킨 성과를 보고했으며, 생애주기별로 정책의 효과가 차이남을 밝혔습니다. IT 기업의 구체적인 출산·육아 정책 도입 사례와 그 효과 측정 방법론이 우리 회사의 유사 정책 고도화에 직접 참고할 수 있는 사례입니다.</div>
+      
+      <div class="discussion" style="background:#0596690d;border-color:#05966930">
+        <div class="disc-lbl" style="color:#059669">💬 Discussion</div>
+        <div class="disc-q" style="color:#059669dd">1. 크래프톤의 출산·육아 정책(심리상담 프로그램, 근무환경 개선 등)이 구체적으로 어떻게 설계·운영되고 있으며, 우리 회사의 기존 정책과 비교했을 때 보완이 필요한 영역(예: 생애주기별 맞춤 지원, 심리 건강 프로그램 등)이 있는지 검토할 필요가 있을까?</div><div class="disc-q" style="color:#059669dd">2. 임직원의 만족도 및 업무 몰입도 향상을 정량적으로 측정하기 위해 크래프톤이 활용한 평가 지표 및 조사 방법론을 우리 HR팀에서도 도입할 수 있을까?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://www.gasnews.com/news/articleView.html?idxno=125098" target="_blank">[전문가 기고] 중대재해 제로를 향한 패러다임의 전환 규제 준수 넘어 ...</a>
+      <div class="src-row-sm"><span class="src-badge">gasnews.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">중대재해 예방을 위해 규제 준수를 넘어 조직의 의지와 가치관을 진단·개선하는 패러다임 전환의 필요성을 강조하고 있으며, 이를 통해 기업이 수동적 규제 준수자에서 적극적 안전 문화 주도자로 변모해야 함을 제시합니다. 안전보건 조직문화 혁신이 리더십과 직결되는 실무 과제로서 HR팀의 주요 검토 대상입니다.</div>
+      
+      <div class="card-disc" style="background:#05966908;border-color:#05966925">
+        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#059669cc">현재 우리 회사의 안전 관련 조직문화 진단이 규제 준수 차원에 머물러 있지는 않은지, 리더십 차원에서 임직원의 안전 가치관과 의지를 강화하기 위한 HR 프로그램(교육, 평가, 보상 등)이 충분히 설계되어 있는지 점검할 필요가 있을까?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.viva100.com/article/20260512501167" target="_blank">행복청, ‘해피브릿지 2기’로 조직 혁신 가속화</a>
+      <div class="src-row-sm"><span class="src-badge">viva100.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">행정안전부 산하 행복청이 '해피브릿지 2기'를 통해 디지털·업무 혁신 도입, 불합리한 관행 개선, 현장 아이디어 발굴에 중점을 두고 민간·공공 우수 사례를 벤치마킹하여 조직혁신 모델을 구축하고 있습니다. 공공기관의 조직 혁신 사례이지만, 임직원 참여 기반의 문화 개선과 디지털 혁신 전략이 우리 조직문화 개선에 참고할 만한 가치가 있습니다.</div>
+      
+      <div class="card-disc" style="background:#05966908;border-color:#05966925">
+        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#059669cc">행복청의 현장 아이디어 발굴·불합리한 관행 개선 프로세스가 우리 회사의 임직원 참여형 조직혁신 프로그램(예: 제안제도, 혁신 태스크포스 등)과 어떤 점에서 다르며, 벤치마킹할 수 있는 운영 메커니즘이 있는지 검토할 필요가 있을까?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.sedaily.com/article/20043758?ref=naver" target="_blank">산단공, 산단 입주 중기 ‘일·생활 균형 제도’ 맞춤 컨설팅</a>
+      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/14</span></div>
+      <div class="card-summary">산단공이 산업단지 입주 중소기업을 대상으로 일·생활 균형 제도 개선을 위한 맞춤형 컨설팅을 제공하고 있으며, 인력 운영·근로시간·조직문화를 종합 진단 후 개선 계획을 수립·이행점검하는 구조로 운영 중입니다. 우리 회사도 임직원 만족도와 생산성 향상을 목표로 하는 조직문화 진단 및 개선 프레임워크를 벤치마킹할 수 있는 사례입니다.</div>
+      
+      <div class="card-disc" style="background:#05966908;border-color:#05966925">
+        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#059669cc">현재 우리 HR팀이 운영 중인 일·생활 균형 관련 제도와 산단공의 컨설팅 항목(인력 운영 방식, 근로시간 구조, 조직문화)을 비교분석하여 보완이 필요한 영역이 있는지 검토할 필요가 있을까?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#D97706,#D97706cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">💰</div>
+      <span class="sec-title">보상 / 복리후생</span>
+      <span class="sec-cnt">4건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#D977060a;border-left-color:#D97706">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#D97706;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.newsclaim.co.kr/news/articleView.html?idxno=3063745" target="_blank">성과급 전쟁 경기 위기로 떠오른 노조 파업</a>
+      <div class="src-row">
+        <span class="src-badge">newsclaim.co.kr</span>
+        <span class="dt">05/15</span>
+      </div>
+      <div class="summary">국내 주요 기업들의 노조가 영업이익 기반 성과급을 요구하면서 기존 성과급 체계가 대전환되고 있으며, 삼성전자·현대차·LG유플러스 등에서 파업으로 비화되고 있다. HR팀은 글로벌(미국 주식보상 중심) 및 선진국(산별노조) 보상 체계와의 비교분석을 통해 우리 기업의 인센티브 정책 재검토와 노사 협의 전략을 수립해야 한다.</div>
+      
+      <div class="discussion" style="background:#D977060d;border-color:#D9770630">
+        <div class="disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="disc-q" style="color:#D97706dd">우리 기업의 현재 성과급 체계(기준·산정 방식·상한선)가 향후 노조 요구 변화에 대응할 수 있도록 설계되어 있는지, 그리고 선제적으로 개편이 필요한지 검토할 기준은 무엇인가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://m.skyedaily.com/news_view.html?ID=304087" target="_blank">영업이익 기반 성과급 요구, 한국 노조 뉴노멀 되나</a>
+      <div class="src-row-sm"><span class="src-badge">m.skyedaily.com</span><span class="dt">05/14</span></div>
+      <div class="card-summary">SK하이닉스가 영업이익의 10%를 성과급 재원으로 설정한 사례를 계기로, 한국 노조들의 영업이익 기반 성과급 요구가 새로운 표준(뉴노멀)으로 자리 잡을 가능성이 커지고 있다. HR팀은 이 추세를 사전에 인식하여 장기적인 보상 정책 개편 로드맵과 노사 대화 시나리오를 준비해야 한다.</div>
+      
+      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
+        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#D97706cc">영업이익 기반 성과급이 노조의 스탠다드로 정착될 경우, 우리 기업의 인센티브 설계·재무계획·주주관계 관리 측면에서 미리 검토해야 할 리스크와 대응 전략은 무엇인가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.news2day.co.kr/article/20260513500181" target="_blank">[N2 포커스] 삼성전자, 파업 '전운'…타결 요구 커져</a>
+      <div class="src-row-sm"><span class="src-badge">news2day.co.kr</span><span class="dt">05/13</span></div>
+      
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.smartbizn.com/news/articleView.html?idxno=143763" target="_blank">'삼성전자 총파업' 40조 피해 현실?···정부 '긴급조정권' 주목</a>
+      <div class="src-row-sm"><span class="src-badge">smartbizn.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">SK하이닉스의 특별 성과급 사례가 다른 산업·기업으로 무리하게 일반화되면서 노조의 과도한 요구로 연결될 수 있다는 우려가 제기되고 있다. HR팀은 성과급 벤치마킹 시 우리 기업의 사업 특성·재무 건전성·산업 관행을 명확히 하여 합리적 수준의 보상 정책을 수립해야 한다.</div>
+      
+      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
+        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#D97706cc">SK하이닉스 등 특정 기업의 성과급 사례가 노조 협상에서 인용될 때, 우리 기업의 업종·실적·경영 상황에 맞는 '합리적 성과급 기준'을 어떻게 정의하고 커뮤니케이션할 것인가?</div>
+      </div>
+      
+    </div>
+  
+  <div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#7C3AED,#7C3AEDcc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">🤖</div>
+      <span class="sec-title">HR Tech</span>
+      <span class="sec-cnt">4건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#7C3AED0a;border-left-color:#7C3AED">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#7C3AED;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://www.econovill.com/news/articleView.html?idxno=739968" target="_blank">"1년 새 직원 52명→32명, 퍼포먼스는 200% 성장" AI 직원에게 일 시키는...</a>
+      <div class="src-row">
+        <span class="src-badge">econovill.com</span>
+        <span class="dt">05/13</span>
+      </div>
+      <div class="summary">넥스트페이먼츠는 AI 도입을 통해 직원 수를 52명에서 32명으로 감축하면서도 업무 성과를 200% 증대한 사례를 공유했으며, 이는 단순 'AI 활용'을 넘어 'AI 조직화'로의 전환을 의미한다. 우리 조직도 향후 AI 도입 확대 시 조직 구조·인력 배치·업무 재설계에 관련된 전략적 의사결정이 필요하며, 이에 따른 인력 이동·재배치·전환 교육 계획을 사전에 수립해야 한다.</div>
+      
+      <div class="discussion" style="background:#7C3AED0d;border-color:#7C3AED30">
+        <div class="disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="disc-q" style="color:#7C3AEDdd">1. AI 조직화 추진 시 현 직원의 감축이 필요한 경우, 영향받는 직원의 재배치, 재교육, 커리어 전환 지원 방안을 어떻게 설계하고 조직 신뢰를 유지할 것인가?</div><div class="disc-q" style="color:#7C3AEDdd">2. 우리 조직의 직무 특성상 AI 도입으로 인한 조직 생산성 향상 가능성과 필요 인력 규모 변화를 미리 시뮬레이션하고 중장기 인력 계획에 반영할 준비가 되어 있는가?</div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+    <div class="card">
+      <a class="card-title" href="https://www.techm.kr/news/articleView.html?idxno=151830" target="_blank">[테크M 이슈] 멀티 AI 혼돈의 해결사로 나선 메가존클라우드…IPO 앞두고...</a>
+      <div class="src-row-sm"><span class="src-badge">techm.kr</span><span class="dt">05/14</span></div>
+      <div class="card-summary">기업들이 수백 개의 AI 도구를 동시에 도입하면서 관리 혼란 문제가 발생하고 있으며, 메가존클라우드의 HALO와 같은 'AI 거버넌스 솔루션'이 이를 해결하는 방안으로 주목받고 있다. 우리 조직도 향후 AI 도입이 확대될 경우 다양한 AI 툴의 통합 관리, 보안, 비용 최적화 문제에 직면할 수 있어 사전 대비가 필요하다.</div>
+      
+      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
+        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">조직 내 여러 AI 도구 도입 시 발생할 수 있는 보안·비용·생산성 문제를 사전에 관리하기 위해 AI 거버넌스 프레임워크나 통합 검수 프로세스를 구축할 필요가 있는가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.news2day.co.kr/article/20260514500103" target="_blank">[Data Job (18)] 인크루트 조사: 직장인 94.9% “업무에 AI 활용”…최대...</a>
+      <div class="src-row-sm"><span class="src-badge">news2day.co.kr</span><span class="dt">05/14</span></div>
+      <div class="card-summary">인크루트 조사에 따르면 직장인 94.9%가 업무에 AI를 활용하고 있으며, 단순 참고 수준을 넘어 핵심 업무와 실무 프로세스 전반에 AI를 통합하는 추세가 확산되고 있다. 우리 조직도 현재 AI 도입 수준을 파악하고 향후 전사적 AI 활용 정책 수립의 기초 데이터로 활용할 필요가 있다.</div>
+      
+      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
+        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
+        <div class="card-disc-q" style="color:#7C3AEDcc">현재 우리 조직 내 AI 활용 현황을 진단하고, 부문별·직무별 AI 도입 격차를 파악한 후 전사 AI 활용 교육 및 지원 프로그램을 수립할 계획이 있는가?</div>
+      </div>
+      
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.viva100.com/article/20260511500592" target="_blank">[비바100] “AI 도입했는데 성과는 제자리?”…기업들 ‘생산성 역설’...</a>
+      <div class="src-row-sm"><span class="src-badge">viva100.com</span><span class="dt">05/14</span></div>
+      
+      
+    </div>
+  
+  <div class="card-empty"></div>
+  </div>
+  </div>
+</div>
+
+</div>
+</div>
+<div class="footer">
+  <div class="footer-inner">
+    <span>HR 뉴스 브리핑 &nbsp;·&nbsp; AUTO-GENERATED</span>
+    <span>2026-05-15</span>
+  </div>
+</div>
+</body></html>
