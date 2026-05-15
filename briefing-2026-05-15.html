@@ -34,8 +34,8 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
 .sec-title{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.2px}
 .sec-cnt{margin-left:auto;background:rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;backdrop-filter:blur(4px)}
 
-/* ── 대표 기사 영역 ── (고정 높이로 좌우 섹션 통일) */
-.featured-wrap{padding:14px 18px;border-left:4px solid transparent;height:420px;display:flex;flex-direction:column}
+/* ── 대표 기사 영역 ── */
+.featured-wrap{padding:14px 18px;border-left:4px solid transparent;height:300px;display:flex;flex-direction:column}
 .featured-inner{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06);flex:1;overflow:hidden;display:flex;flex-direction:column}
 /* 하위기사 래퍼가 남은 공간을 채움 */
 .grid-wrap{flex:1;display:flex;flex-direction:column;min-height:0}
@@ -45,26 +45,28 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
 .src-row{display:flex;align-items:center;gap:7px;margin-bottom:11px}
 .src-badge{font-size:10px;font-weight:600;background:#f1f5f9;color:#64748b;border-radius:5px;padding:2px 8px;border:1px solid #e2e8f0}
 .dt{font-size:10px;color:#94a3b8;font-weight:500}
-.summary{font-size:13px;color:#374151;line-height:1.75;margin-bottom:13px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.discussion{border-radius:10px;padding:12px 15px;border:1px solid;margin-top:9px}
-.disc-lbl{font-size:10px;font-weight:800;margin-bottom:8px;letter-spacing:.8px;text-transform:uppercase}
-.disc-q{font-size:12px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06)}
-.disc-q:last-child{border-bottom:none;padding-bottom:0}
+.summary{font-size:13px;color:#374151;line-height:1.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── 하위 기사 그리드 ── */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:230px;align-content:start;gap:0;margin-top:1px}
-.card{background:#fff;padding:14px 20px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;display:flex;flex-direction:column;overflow:hidden;height:230px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;align-content:start;gap:0;margin-top:1px}
+.card{background:#fff;padding:12px 18px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;display:flex;flex-direction:column;overflow:hidden;height:160px}
 .card:nth-child(even){border-right:none}
-.card-empty{height:230px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0}
+.card-empty{height:160px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0}
 .card-empty:nth-child(even){border-right:none}
-.card-title{font-size:12.5px;font-weight:700;color:#1e293b;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:6px;letter-spacing:-.1px;min-height:2.7em}
+.card-title{font-size:12.5px;font-weight:700;color:#1e293b;text-decoration:none;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:5px;letter-spacing:-.1px;min-height:2.7em}
 .card-title:hover{color:#4f6ef7}
-.src-row-sm{display:flex;align-items:center;gap:6px;margin-bottom:8px}
-.card-summary{font-size:11.5px;color:#64748b;line-height:1.65;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-disc{border-radius:7px;padding:8px 11px;border:1px solid;margin-top:auto}
-.card-disc-lbl{font-size:9px;font-weight:800;margin-bottom:5px;letter-spacing:.8px;text-transform:uppercase}
-.card-disc-q{font-size:11px;line-height:1.55;margin-bottom:3px;font-weight:500}
-.card-disc-q:last-child{margin-bottom:0}
+.src-row-sm{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.card-summary{font-size:11.5px;color:#64748b;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── 카테고리 Idea & Action 바 ── */
+.insight-bar{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #e2e8f0}
+.insight-block{padding:14px 18px}
+.idea-block{border-right:1px solid #e2e8f0;background:#f0fdf4}
+.action-block{background:#fff7ed}
+.insight-label{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.idea-block .insight-label{color:#059669}
+.action-block .insight-label{color:#d97706}
+.insight-text{font-size:12.5px;line-height:1.72;color:#374151}
 
 /* ── 오늘의 HR 핵심요약 바 ── */
 .headline-bar{background:linear-gradient(180deg,#0f1117 0%,#141926 100%);border-bottom:2px solid #4f6ef7;padding:0}
@@ -100,11 +102,11 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     </div>
     <div class="header-stats">
       <div class="stat-chip">
-        <div class="num">21</div>
+        <div class="num">25</div>
         <div class="lbl">Articles</div>
       </div>
       <div class="stat-chip">
-        <div class="num">5</div>
+        <div class="num">6</div>
         <div class="lbl">Topics</div>
       </div>
     </div>
@@ -115,7 +117,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
   <div class="headline-inner">
     <div class="headline-title">📌 오늘의 HR 핵심요약</div>
     <div class="headline-items">
-      <div class="headline-item"><span class="headline-num">1</span><span>AI 시대 인재 경쟁력 격차는 '교육 체계 재구축 속도'에서 결정되므로, 현 교육·역량 개발 프로그램의 AI 시대 적합성을 즉시 진단하고 고도화 로드맵을 수립해야 한다.</span></div><div class="headline-item"><span class="headline-num">2</span><span>다중 AI 도구 도입 확산에 따라 직원 역량 관리, 비용 통제, 리스크 관리의 복잡도가 증가하고 있으므로, AI 거버넌스 체계와 직원 교육 기준을 선제적으로 정비할 필요가 있다.</span></div><div class="headline-item"><span class="headline-num">3</span><span>업계 보상 체계 개편 논의와 노무 리스크 확대 추세 속에서 우리 회사의 중장기 보상 전략과 노사관계 정책을 재점검하고, 원·하청 관계의 선제적 리스크 관리 방안을 강화해야 한다.</span></div>
+      <div class="headline-item"><span class="headline-num">1</span><span>AI 시대 인재상 재정의 및 교육 체계 혁신이 시급하다. 노벨상 수상자 지적처럼 경제 구조 변화에 선제적으로 대응하려면 미래형 직무 설계와 재교육 프로그램을 즉시 검토해야 한다.</span></div><div class="headline-item"><span class="headline-num">2</span><span>AI 거버넌스 체계 구축이 새로운 HR 경쟁력이다. 직원들의 다중 AI 도구 혼용으로 인한 생산성 저하, 규정 위반, 품질 문제 관리를 위해 통합 감시·관리 솔루션 도입을 검토하자.</span></div><div class="headline-item"><span class="headline-num">3</span><span>글로벌 진출 지역별 노무·보상 정책 사전 준비가 필수다. 크로아티아 같은 신규 시장과 라틴아메리카 확장 시 현지 노동법 리스크, 성과급 정책 차등화를 미리 설계해야 분쟁을 예방할 수 있다.</span></div>
     </div>
   </div>
 </div>
@@ -129,7 +131,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="sec-header-row">
       <div class="sec-icon">👥</div>
       <span class="sec-title">채용 / 인재관리</span>
-      <span class="sec-cnt">3건</span>
+      <span class="sec-cnt">4건</span>
     </div>
   </div>
 
@@ -143,13 +145,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">news.einfomax.co.kr</span>
         <span class="dt">05/15</span>
       </div>
-      <div class="summary">노벨경제학상 수상자가 AI 기술이 경제 구조를 근본적으로 변화시킬 것이며, 특히 교육과 금융 분야의 재설계가 필수라고 지적했다. 이는 기업 인재 전략과 조직의 미래 경쟁력이 AI 시대에 맞는 교육·육성 체계 재구축을 얼마나 빨리 실행하느냐에 달려 있음을 의미한다.</div>
-      
-      <div class="discussion" style="background:#4F46E50d;border-color:#4F46E530">
-        <div class="disc-lbl" style="color:#4F46E5">💬 Discussion</div>
-        <div class="disc-q" style="color:#4F46E5dd">AI 시대에 필요한 신규 역량 정의와 임직원 재교육 로드맵을 수립하고, 채용 및 배치 기준을 어떻게 전환할 것인가?</div>
-      </div>
-      
+      <div class="summary">노벨 경제학상 수상자가 AI가 경제 구조, 교육, 금융을 근본적으로 재설계할 기술임을 강조했다. 정부와 기업들이 AI·GX·R&D 중심으로 인재 전략과 조직 구조를 재편하고 있는 만큼, 기업도 미래형 인재상 재정의, 교육 체계 혁신, 조직 구조 재설계를 선제적으로 준비해야 한다.</div>
     </div>
   </div>
   
@@ -162,30 +158,38 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.kyosu.net/news/articleView.html?idxno=205349" target="_blank">대기업 절반 이상이 'AI 면접' 도입 "첫인상에 속지 않는다"</a>
       <div class="src-row-sm"><span class="src-badge">kyosu.net</span><span class="dt">05/07</span></div>
-      <div class="card-summary">국내 대기업 절반 이상이 AI 면접 솔루션을 도입하고 있으며, 표정·시선·답변 구조 등을 객관적으로 분석하는 방식이 확산 중이다. 다만 아마존의 AI 채용 시스템 폐기 사례처럼 편향성 문제가 지적되고 있어, HR팀은 도입 전 신기술의 공정성·윤리적 문제를 꼼꼼히 검토해야 한다.</div>
-      
-      <div class="card-disc" style="background:#4F46E508;border-color:#4F46E525">
-        <div class="card-disc-lbl" style="color:#4F46E5">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#4F46E5cc">AI 면접 솔루션 도입 시 성별·국적·연령 등 보호 속성에 대한 편향이 없는지 사전에 검증하고, 정기적인 모니터링 체계를 마련할 것인가?</div>
-      </div>
-      
+      <div class="card-summary">국내 대기업 절반 이상이 AI 면접 솔루션을 도입 중이며, 표정·시선·답변 구조를 분석하는 기술이 확산되고 있다. 다만 아마존의 성차별 AI 폐기 사례를 참고하여 알고리즘 편향성 검증, 법적 리스크(성차별·장애인 차별 우려) 점검, 투명한 평가 기준 공개가 필수적이다.</div>
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.dailysecu.com/news/articleView.html?idxno=206698" target="_blank">"북한 해커, 이제 사람과 공급망까지 노린다"…가상자산 공격 '오프라인...</a>
+      <div class="src-row-sm"><span class="src-badge">dailysecu.com</span><span class="dt">05/13</span></div>
+      <div class="card-summary">북한 해커들이 LinkedIn의 허위 채용 공고를 이용해 기업 내부 엔지니어에게 접근하는 신종 공격 수법이 적발됐다. IT 기업 HR팀은 채용 공고 위·변조 감시, 면접 프로세스 보안 강화, 신입사원 온보딩 시 신원 재확인 절차 도입을 검토해야 한다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="http://www.newsprime.co.kr/news/article.html?no=733032" target="_blank">현대모비스, 협력사 SW 생태계 넓힌다…교육부터 채용까지</a>
       <div class="src-row-sm"><span class="src-badge">newsprime.co.kr</span><span class="dt">05/11</span></div>
-      <div class="card-summary">현대모비스가 협력사의 SW 인재 양성을 위해 교육부터 채용까지 지원하는 생태계를 구축하고 있다. IT 산업의 심화된 인재 경쟁 속에서 공급망 전체의 인재 파이프라인을 직접 조성하는 모델은 NAVER도 생태계 파트너사 역량 강화 차원에서 검토할 수 있는 협력적 채용·육성 전략이다.</div>
-      
-      <div class="card-disc" style="background:#4F46E508;border-color:#4F46E525">
-        <div class="card-disc-lbl" style="color:#4F46E5">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#4F46E5cc">우리 생태계 파트너사(클라우드, 콘텐츠, 커머스 등)의 개발 인재 부족 문제를 해결하기 위해 공동 교육 및 채용 지원 프로그램을 도입할 수 있을까?</div>
-      </div>
-      
+      <div class="card-summary">현대모비스가 협력사 대상 SW 부트캠프를 통해 교육과 채용을 통합 지원하는 생태계 모델을 구축했다. 공급망 협력사들의 인재 채용 부담을 덜어주는 동시에 필요 인재를 선제적으로 육성하는 산업 차원의 인재 전략이 주목할 만하다.</div>
     </div>
   
-  <div class="card-empty"></div><div class="card-empty"></div>
+  <div class="card-empty"></div>
   </div>
   </div>
+
+  <!-- 카테고리 Idea & Action -->
+  
+  <div class="insight-bar">
+    <div class="insight-block idea-block">
+      <div class="insight-label">💡 Benchmarking Idea</div>
+      <div class="insight-text">AI 면접 솔루션 도입 시 알고리즘 공정성 검증 체계를 필수 사항으로 정착시키고, 협력사·생태계 차원의 인재 육성 프로그램(부트캠프, 교육 지원) 설계를 통해 채용 경쟁력을 확대할 수 있다. 또한 AI 시대 미래형 인재상을 재정의하고 기존 스펙 중심 평가에서 경험·역량 중심 평가로 전환하는 문화 개선이 필요하다.</div>
+    </div>
+    <div class="insight-block action-block">
+      <div class="insight-label">⚡ HR Action</div>
+      <div class="insight-text">① 현재 도입 중인 AI 면접 솔루션에 대한 편향성 감시 및 법적 리스크(성차별·장애인 차별) 검증 프로세스 신속히 수립, ② LinkedIn 등 채용 채널에서 공고 위·변조 감시 및 신입사원 신원 재확인 절차 강화, ③ AI 시대 조직 내 필요 인재상을 재정의하고 교육·채용 체계 개편 로드맵 수립.</div>
+    </div>
+  </div>
+  
 </div>
 
 <div class="section">
@@ -203,18 +207,12 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
   <div class="featured-wrap" style="background:#DC26260a;border-left-color:#DC2626">
     <div class="featured-inner">
       <span class="featured-badge" style="background:#DC2626;color:#fff">⭐ Top Pick</span>
-      <a class="featured-title" href="https://www.news1.kr/economy/employment-labor/6166948" target="_blank">노사발전재단 사무총장 "삼성 노사, 동심원 키우는 자세 필요"</a>
+      <a class="featured-title" href="http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=80&CONTENTS_NO=2&bbsGbn=242&bbsSn=242&pNttSn=240902" target="_blank">2026년 1분기 크로아티아 경제·제도·인프라 주요 현안</a>
       <div class="src-row">
-        <span class="src-badge">n.news.naver.com</span>
-        <span class="dt">05/14</span>
+        <span class="src-badge">dream.kotra.or.kr</span>
+        <span class="dt">05/15</span>
       </div>
-      <div class="summary">개정 노조법 시행 이후 원·하청 관계에서의 노사 갈등이 확산되고 있으며, 노사발전재단이 기업의 해외 인사·노무 리스크 대응 지원을 강화하고 있다. NAVER와 같은 대형 기업이 복합적인 노무 리스크를 관리하기 위해 법제도 변화 모니터링과 원·하청 관계 정책 수립이 필수적이다.</div>
-      
-      <div class="discussion" style="background:#DC26260d;border-color:#DC262630">
-        <div class="disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="disc-q" style="color:#DC2626dd">현행 개정 노조법 체계에서 우리 기업의 원·하청 관계 구조(협력사, 외주사 등)를 점검하고 노무 리스크를 사전에 식별하기 위한 감시 체계를 마련했는가?</div>
-      </div>
-      
+      <div class="summary">크로아티아 진출 기업이 현지 노동법, 세무 시스템, 전자 행정 절차에 대해 사전 준비해야 한다는 내용으로, NAVER Cloud의 해외 확장 시 현지 노무 리스크 대응 체계 구축에 참고할 수 있다.</div>
     </div>
   </div>
   
@@ -227,42 +225,38 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.businesspost.co.kr/BP?command=article_view&num=436688" target="_blank">[Who Is ?] 김영훈 고용노동부 장관</a>
       <div class="src-row-sm"><span class="src-badge">businesspost.co.kr</span><span class="dt">05/12</span></div>
-      <div class="card-summary">신임 고용노동부 장관이 '가짜 3.3 계약(프리랜서 위장)'을 명백한 위법행위로 규정하고 중대재해처벌법 이후 엄격한 근로감시를 추진 중이다. 기업이 용역·프리랜서 등 비정규 고용 형태에서 근로자로 분류될 수 있는 실질적 종속 관계를 재정의해야 하며, 중대재해 예방 책임이 강화되는 추세에 대응해야 한다.</div>
-      
-      <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
-        <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#DC2626cc">현재 우리 기업의 용역·프리랜서·협력사 인력 구조 중 '실질적 종속 관계'로 재분류될 가능성이 있는 계약 형태가 있는지 전수 점검할 필요가 있는가?</div>
-      </div>
-      
+      <div class="card-summary">신임 고용노동부 장관이 '가짜 3.3 계약' 등 노동법 회피 행위를 명백한 위법으로 규정하고 중대재해처벌법 강화 기조를 보이고 있어, IT 기업의 특수고용노동자·프리랜서 근로 형태에 대한 합법성 재점검이 필요하다.</div>
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://www.news1.kr/economy/employment-labor/6166948" target="_blank">노사발전재단 사무총장 "삼성 노사, 동심원 키우는 자세 필요"</a>
+      <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/14</span></div>
+      <div class="card-summary">개정 노조법 시행 이후 원·하청 관계의 갈등이 확산되는 상황에서 노사발전재단의 중재·컨설팅 역할이 강조되고 있으며, 기업의 해외 인사·노무 리스크 대응 지원 필요성이 대두되었다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.idomin.com/news/articleView.html?idxno=2005491" target="_blank">원청 교섭 책임 없인 특수고용노동자 보호도 없다</a>
       <div class="src-row-sm"><span class="src-badge">idomin.com</span><span class="dt">05/11</span></div>
-      <div class="card-summary">3월 시행된 개정 노동조합법에서 노동조건을 실질적·구체적으로 지배·결정하면 근로계약 당사자로 간주하는 기준이 명확화되고 있다. 특수고용노동자(배달기사, 플랫폼 기반 인력 등)의 보호 강화와 원청의 교섭 책임이 확대되므로 당사자 간 협의 구조를 사전에 구축해야 한다.</div>
-      
-      <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
-        <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#DC2626cc">우리 기업이 플랫폼·배달·외주 형태의 특수고용노동자를 활용하는 경우, 개정 노조법 하에서 원청의 '실질적 지배·결정' 책임 범위를 재정의하고 노동조건 협의 체계를 구축해야 하는가?</div>
-      </div>
-      
-    </div>
-  
-    <div class="card">
-      <a class="card-title" href="https://www.etoday.co.kr/news/view/2584164" target="_blank">정부 ‘긴급조정권’ 개입론도 나오지만…“그 전에 협상해 피해 막아야...</a>
-      <div class="src-row-sm"><span class="src-badge">etoday.co.kr</span><span class="dt">05/14</span></div>
-      <div class="card-summary">노사 교섭 과정에서 정부의 '긴급조정권' 개입 가능성이 논의되고 있으며, 당사자 동의 없이도 중재안이 단체협약과 유사한 효력을 갖게 될 수 있다. 대규모 노사 분쟁 시 정부 개입의 범위와 구속력이 확대될 가능성에 대응하기 위해 사전 협상 및 리스크 관리 전략이 필요하다.</div>
-      
-      <div class="card-disc" style="background:#DC262608;border-color:#DC262625">
-        <div class="card-disc-lbl" style="color:#DC2626">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#DC2626cc">노사관계 관리 차원에서 정부 긴급조정권 발동 가능성에 대비한 협상 전략과 리스크 관리 계획을 수립해야 하는가?</div>
-      </div>
-      
+      <div class="card-summary">3월 시행된 개정 노동조합법에서 노동조건을 실질적으로 지배·결정하는 당사자는 근로계약 책임을 지도록 명시되어, 플랫폼·위탁 기업의 원청 책임 범위 확대에 대한 대응 필요성이 증가했다.</div>
     </div>
   
   <div class="card-empty"></div>
   </div>
   </div>
+
+  <!-- 카테고리 Idea & Action -->
+  
+  <div class="insight-bar">
+    <div class="insight-block idea-block">
+      <div class="insight-label">💡 Benchmarking Idea</div>
+      <div class="insight-text">NAVER HR팀은 개정 노동조합법·노조법에 따른 원청 책임 확대와 특수고용노동자 보호 강화 기조에 맞춰, 현재의 프리랜서·협력사 관계의 합법성을 재점검하고 표준 근로계약 가이드라인을 정비할 필요가 있다. 또한 해외 진출 시 현지 노무법 컨설팅 체계와 최저임금·장애인 고용 등 정책 변화에 대응할 수 있는 HR 시스템 고도화를 병행하여 리스크를 선제적으로 관리해야 한다.</div>
+    </div>
+    <div class="insight-block action-block">
+      <div class="insight-label">⚡ HR Action</div>
+      <div class="insight-text">① 신임 고용노동부의 '가짜 3.3 계약' 위법 규정 기조에 따라 현재 운영 중인 프리랜서·특수고용 계약 현황을 법무·HR팀 합동으로 긴급 검토하고 합법성 판단 및 개선안 수립 ② 2026년 장애인 고용 강화 정책과 최저임금 환산 기준 변화에 대응하기 위해 급여 시스템 업그레이드 계획 수립 및 부서별 영향도 분석 ③ NAVER Cloud의 해외 진출 지역별 현지 노동법 리스크 맵핑 및 상주 노무 컨설턴트 또는 협력사 확보 검토</div>
+    </div>
+  </div>
+  
 </div>
 
 <div class="section">
@@ -285,13 +279,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">joongangenews.com</span>
         <span class="dt">05/14</span>
       </div>
-      <div class="summary">크래프톤이 출산·육아 지원, 심리상담 프로그램, 근무 환경 개선 등 생애주기별 맞춤 정책을 통해 출산 의향 제고 및 업무 몰입도, 일·가정 양립 만족도를 향상시킨 성과를 공표했습니다. IT업계 대표기업의 구체적인 출산·육아 정책 도입 성과 사례로, 우리 조직의 여성 인력 확대 및 일·가정 양립 제도 고도화에 즉시 참고할 수 있습니다.</div>
-      
-      <div class="discussion" style="background:#0596690d;border-color:#05966930">
-        <div class="disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="disc-q" style="color:#059669dd">1. 크래프톤의 생애주기별 맞춤 접근 방식을 벤치마킹하여, 우리 조직에서도 미혼·기혼·육아 단계별로 서로 다른 출산 동기 요인에 맞게 HR 정책을 세분화할 필요가 있지 않을까요?</div><div class="disc-q" style="color:#059669dd">2. 심리상담 프로그램이 실제 출산 의향 제고에 기여한 점을 고려할 때, 우리 조직도 정신건강 지원 서비스를 출산·육아 정책 패키지에 포함시켜야 할까요?</div>
-      </div>
-      
+      <div class="summary">크래프톤이 출산·육아 지원, 심리상담 등 생애주기별 맞춤형 정책으로 업무 몰입도와 일·가정 양립 만족도를 제고했습니다. IT 업계의 실제 출산 정책 성과 데이터로 정책 효과 측정 및 세대별 니즈 대응 방법론을 학습할 수 있습니다.</div>
     </div>
   </div>
   
@@ -304,54 +292,44 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.gasnews.com/news/articleView.html?idxno=125098" target="_blank">[전문가 기고] 중대재해 제로를 향한 패러다임의 전환 규제 준수 넘어 ...</a>
       <div class="src-row-sm"><span class="src-badge">gasnews.com</span><span class="dt">05/13</span></div>
-      <div class="card-summary">중대재해 제로를 위해 규제 준수를 넘어 조직의 안전 문화와 가치관 개선이 핵심이라는 전문가 기고로, 체계적인 조직문화 진단 및 개선의 중요성을 강조합니다. 우리 조직의 안전 리더십 문화 구축 및 리스크 관리 차원의 조직문화 진단 필요성을 시사합니다.</div>
-      
-      <div class="card-disc" style="background:#05966908;border-color:#05966925">
-        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">우리 조직의 안전 문화를 강화하기 위해 현재의 규제 준수 중심 접근에서 벗어나 리더십과 조직 가치관 차원의 진단 및 개선을 추진할 필요가 있지 않을까요?</div>
-      </div>
-      
+      <div class="card-summary">중대재해 제로를 위해 규제 준수를 넘어 조직 의지와 가치관을 진단·개선하는 안전 문화 체계 전환을 제시합니다. 조직문화 진단을 통한 근본적인 리더십·의식 개선이 중요한 과제임을 강조합니다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.viva100.com/article/20260512501167" target="_blank">행복청, ‘해피브릿지 2기’로 조직 혁신 가속화</a>
       <div class="src-row-sm"><span class="src-badge">viva100.com</span><span class="dt">05/13</span></div>
-      <div class="card-summary">행복청이 '해피브릿지 2기' 프로그램을 통해 유연근무 제도, 불합리한 조직 관행 개선, 정책 중심 아이디어 발굴 등을 추진하며 공공기관이 민간기업 우수 사례를 벤치마킹하여 차별화된 조직혁신 모델을 구축하고 있습니다. 대규모 조직의 체계적인 조직 혁신 프로그램 설계 사례로 우리 조직 혁신 전략에 참고할 수 있습니다.</div>
-      
-      <div class="card-disc" style="background:#05966908;border-color:#05966925">
-        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">우리 조직도 유연근무, 관행 개선, 아이디어 발굴을 통합하는 체계적인 조직혁신 프로그램을 설계할 때 어떤 순서로 우선순위를 정하고 어떤 성과 지표를 추적해야 할까요?</div>
-      </div>
-      
+      <div class="card-summary">행복청이 '해피브릿지 2기'로 유연근무, 불합리한 조직 관행 개선, 현장 아이디어 발굴 등에 중점을 두고 민간기업과 공공기관 우수 사례를 벤치마킹한 조직혁신을 추진 중입니다. 공공기관의 체계적 조직혁신 모델을 참고할 수 있습니다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="http://www.thevaluenews.co.kr/news/view.php?idx=198765" target="_blank">[더밸류 브리핑] 오늘의 생명보험 소식…삼성생명·신한라이프·NH농협생...</a>
       <div class="src-row-sm"><span class="src-badge">thevaluenews.co.kr</span><span class="dt">05/15</span></div>
-      <div class="card-summary">삼성생명이 기업 퇴직연금 실무자 대상 전문성 강화 교육과 업무 개선 공모전을 통해 조직문화를 발전시키고 있습니다. 직원 참여형 아이디어 발굴 및 조직문화 개선 사례로서 우리 조직의 혁신 문화 구축 방향에 참고할 수 있습니다.</div>
-      
-      <div class="card-disc" style="background:#05966908;border-color:#05966925">
-        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">우리 조직에서도 현업 직원의 아이디어를 체계적으로 발굴하고 이를 실제 정책 개선으로 연결하는 공모전 체계를 도입할 필요가 있지 않을까요?</div>
-      </div>
-      
+      <div class="card-summary">삼성생명이 기업 퇴직연금 실무자 대상 전문성 강화 교육을 진행하고 업무 개선 공모전을 통해 조직문화 혁신을 추진 중입니다. 직원 아이디어 발굴 및 실행을 통한 조직문화 개선 사례로 벤치마킹 가능한 모델입니다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.sedaily.com/article/20043758?ref=naver" target="_blank">산단공, 산단 입주 중기 ‘일·생활 균형 제도’ 맞춤 컨설팅</a>
       <div class="src-row-sm"><span class="src-badge">n.news.naver.com</span><span class="dt">05/14</span></div>
-      <div class="card-summary">산단공이 입주 중기 대상으로 일·생활 균형 제도 맞춤 컨설팅 사업을 추진하고 있으며, 인력 운영·근로시간·조직문화를 종합 진단한 후 맞춤형 개선안을 제시하고 있습니다. 우리 조직이 계열사 및 협력사 HR 지원 시 참고할 수 있는 컨설팅 프레임워크로 활용 가치가 있습니다.</div>
-      
-      <div class="card-disc" style="background:#05966908;border-color:#05966925">
-        <div class="card-disc-lbl" style="color:#059669">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#059669cc">우리 조직에서도 계열사나 협력사에 대한 일·생활 균형 제도 맞춤 컨설팅 서비스를 개발·제공할 시 어떤 요소(인력 운영 방식, 근로시간 구조, 조직문화)를 우선적으로 진단하고 개선해야 할까요?</div>
-      </div>
-      
+      <div class="card-summary">산단공이 입주 중소기업 대상으로 근로시간·인력운영·조직문화 종합 진단 후 일·생활 균형 제도 맞춤 컨설팅을 제공하고 있습니다. 기업별 맞춤형 HR 컨설팅 모델과 우수 사례 확산 구조가 참고할 만합니다.</div>
     </div>
   
   
   </div>
   </div>
+
+  <!-- 카테고리 Idea & Action -->
+  
+  <div class="insight-bar">
+    <div class="insight-block idea-block">
+      <div class="insight-label">💡 Benchmarking Idea</div>
+      <div class="insight-text">조직문화 진단·개선의 체계화: 조직 의지와 가치관 진단(BRCGS 식품안전 특화 진단, 안전문화 패러다임 전환)에서 출발하여 현장 중심 아이디어 발굴 및 실행(공모전, 컨설팅), 우수 사례 확산까지 연계하는 통합적 프로그램 구축. 생애주기별 맞춤형 정책으로 세대별 니즈 대응(크래프톤 사례): 미혼/부모/육아 등 직원의 생활주기에 따른 차별화된 HR 제도 설계로 몰입도와 만족도 동시 제고.</div>
+    </div>
+    <div class="insight-block action-block">
+      <div class="insight-label">⚡ HR Action</div>
+      <div class="insight-text">출산·육아 정책의 실제 효과 측정 체계 도입: 크래프톤 사례처럼 정책 도입 전후 업무 몰입도, 일·가정 양립 만족도 등을 정량적으로 측정하고 세대별 효과 분석 프로세스 구축. 조직문화 혁신과 안전문화 연계: 규제 준수 차원을 넘어 조직의 근본적 가치관·의지 개선을 위한 진단 도구 도입 검토 및 리더십 역량 강화 프로그램 재설계.</div>
+    </div>
+  </div>
+  
 </div>
 
 <div class="section">
@@ -374,13 +352,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">newsclaim.co.kr</span>
         <span class="dt">05/15</span>
       </div>
-      <div class="summary">삼성전자 성과급 분쟁이 한국 제조업 보상 구조의 근본적 문제로 부각되면서, 미국 주식 보상 중심, 일본·독일 산별노조 체제 등 글로벌 비교 분석이 논의되고 있습니다. 업계 전반의 보상 체계 재정의가 시급한 상황으로, 우리 회사의 중장기 보상 전략 수립에 직결된 이슈입니다.</div>
-      
-      <div class="discussion" style="background:#D977060d;border-color:#D9770630">
-        <div class="disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="disc-q" style="color:#D97706dd">1. 국내 산업 구조 특성상 성과급 중심 보상의 필연성과 한계를 인정하면서, 글로벌 선진사(미국 주식 보상, 독일 공동결정제 등)의 접근 방식 중 우리 회사에 적용 가능한 모델은 무엇일까?</div><div class="disc-q" style="color:#D97706dd">2. 노조의 성과급 고정화 요구에 대응하면서도 경영 성과 연동성을 유지할 수 있는 절충형 보상 구조(예: 기본급 인상 + 선택적 성과급)의 도입 가능성을 검토할 수 있을까?</div>
-      </div>
-      
+      <div class="summary">삼성전자 노조의 높은 성과급 요구(6~7억 원)와 글로벌 기업(미국 빅테크, 일본, 독글)의 상이한 보상 체계 비교를 통해, 한국 제조업의 보상 정책 재편 필요성을 강조합니다. 성과급 분쟁이 업계 전반의 임금 구조 변화를 촉발할 수 있는 중요 신호입니다.</div>
     </div>
   </div>
   
@@ -393,66 +365,50 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.cbci.co.kr/news/articleView.html?idxno=574787" target="_blank">[정치家] 김영훈 고용노동부 장관 ③ㅣ 배달 안전부터 삼성 파업까지 '...</a>
       <div class="src-row-sm"><span class="src-badge">cbci.co.kr</span><span class="dt">05/15</span></div>
-      <div class="card-summary">고용노동부가 배달업 등 특수고용직의 인센티브 체계 전면 개편을 추진하고 있으며, 이는 향후 기업의 포상제도 규제 강화 방향을 시사합니다. 우리 회사의 인센티브 및 포상 제도가 정부의 새로운 정책 방향과 부합하는지 사전 검토가 필요합니다.</div>
-      
-      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
-        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">정부의 인센티브 제도 전면 개편 기조가 향후 전 산업으로 확대될 가능성을 고려하여, 우리 회사의 현재 포상 제도 중 법·정책적 리스크가 있는 항목들을 파악하고 개선 로드맵을 수립해야 할까?</div>
-      </div>
-      
+      <div class="card-summary">정부(고용노동부)가 포상제도 전면 개편과 인센티브 정책 개선을 추진 중이며, 과도한 성과 압박을 완화하는 방향의 제도 개편이 정책 기조로 설정되었습니다. HR팀은 정부 정책 변화에 대응하고 투명한 인센티브 시스템 구축을 검토해야 합니다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.ksilbo.co.kr/news/articleView.html?idxno=1056814" target="_blank">[윤동열의 고용노동이슈(36)]임금 갈등 넘어 분배 전쟁…노사관계의 새...</a>
       <div class="src-row-sm"><span class="src-badge">ksilbo.co.kr</span><span class="dt">05/15</span></div>
-      <div class="card-summary">노사 협상이 전통적 임금·복리후생 논의에서 기업이 창출한 가치의 분배 방식으로 전환되고 있으며, 정부의 긴급조정권 발동 기준도 검토되고 있습니다. 이는 향후 우리 회사의 노사관계 전략과 보상 정책 수립에 근본적 영향을 미칠 수 있는 제도 변화입니다.</div>
-      
-      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
-        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">기업 가치 분배 중심의 새로운 노사협상 패러다임에서 우리 회사가 노조와 합의 가능한 보상 구조(이익 공유제, 주식 보상, 초과이익배분금 등)를 어떻게 설계할 것인가?</div>
-      </div>
-      
+      <div class="card-summary">노사 협상이 전통적 임금 인상에서 '기업 창출 이익의 분배'로 패러다임 전환되고 있으며, 정부의 긴급조정권 활용 가능성이 높아지고 있습니다. 보상 정책의 전략적 재설계와 리스크 관리가 HR팀의 중요 과제로 부상했습니다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.newspim.com/news/view/20260515000548" target="_blank">[TSMC로 본 해법]① "노사 분쟁만큼 보기 싫은 건 없다"…모리스 창이 세...</a>
       <div class="src-row-sm"><span class="src-badge">newspim.com</span><span class="dt">05/15</span></div>
-      <div class="card-summary">TSMC의 성과 기반 보상 체계와 조직 운영 방식을 통해 반도체 산업의 노사 갈등 해소 방안을 제시하는 기사입니다. 삼성전자의 성과급 분쟁이 확대되는 상황에서 글로벌 선진 기업의 인센티브 구조를 벤치마킹할 수 있는 실무 참고자료로 가치가 있습니다.</div>
-      
-      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
-        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">TSMC의 성과급 산정 기준과 지급 메커니즘이 우리 회사의 개편안과 어떻게 다른지 분석하고, 즉시 도입 가능한 요소가 있는지 검토할 수 있을까?</div>
-      </div>
-      
+      <div class="card-summary">TSMC의 노사 관계 및 보상체계 사례를 통해 AI 시대 반도체 산업의 성과 평가 및 보상 방식의 새로운 모델을 제시하고 있습니다. 삼성전자 노사 갈등의 대안으로서 글로벌 선진기업의 보상 구조와 노사 협력 체계를 벤치마킹할 가치가 있습니다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.seoulfn.com/news/articleView.html?idxno=628899" target="_blank">[초점] 삼성發 '성과급 쇼크', K-제조업 흔들린다</a>
       <div class="src-row-sm"><span class="src-badge">seoulfn.com</span><span class="dt">05/15</span></div>
-      <div class="card-summary">성과급이 변동 보상에서 연봉의 일부로 인식되면서 K-제조업 전반에 보상 체계 개편 압력이 높아지고 있습니다. 성과급 축소 시 조직 사기 저하와 인재 유출 우려가 대두되어, 우리 회사의 보상 정책 재검토가 필요한 시점입니다.</div>
-      
-      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
-        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">우리 회사에서 성과급이 고정 임금화되고 있는 정도를 진단하고, 이에 대응하기 위한 보상 재설계 및 커뮤니케이션 전략을 수립할 필요가 있을까?</div>
-      </div>
-      
+      <div class="card-summary">K-제조업 대기업들의 성과급 축소로 인한 노사 갈등과 조직 사기 저하 문제가 확산되고 있으며, 변동 보상이 고정 연봉처럼 인식되는 보상 심리의 변화를 다루고 있습니다. IT 기업도 성과급 정책 조정 시 임직원 기대치 관리 및 투명한 기준 설정이 중요함을 시사합니다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.safetimes.co.kr/news/articleView.html?idxno=242806" target="_blank">삼성전자 노사, 사장단·정부 개입에도 '평행선'</a>
       <div class="src-row-sm"><span class="src-badge">safetimes.co.kr</span><span class="dt">05/15</span></div>
-      <div class="card-summary">삼성전자 노조와 사측이 성과급 산정 기준과 제도 개편을 둘러싸고 교착 상태에 있으며, 이는 국내 대기업의 보상 정책 전환점이 될 가능성이 높습니다. 우리 회사도 유사한 노사 갈등 시나리오에 대비하기 위해 선제적 보상 체계 개선이 필요합니다.</div>
-      
-      <div class="card-disc" style="background:#D9770608;border-color:#D9770625">
-        <div class="card-disc-lbl" style="color:#D97706">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#D97706cc">삼성전자 노조의 성과급 산정 기준 변경 요구 내용을 분석하고, 우리 회사의 현재 산정 방식과 대비하여 노사 분쟁 리스크를 평가하고 선제적 개선안을 수립할 필요가 있을까?</div>
-      </div>
-      
+      <div class="card-summary">삼성전자 노사가 성과급 산정 기준과 제도 개편을 둘러싸고 교착 상태에 있으며, 경영성과 연동형 인센티브와 임금 보장 사이의 구조적 갈등이 심화되고 있습니다. 성과급 제도의 투명성과 공정성 강화가 노사 분쟁 해결의 핵심임을 보여줍니다.</div>
     </div>
   
   
   </div>
   </div>
+
+  <!-- 카테고리 Idea & Action -->
+  
+  <div class="insight-bar">
+    <div class="insight-block idea-block">
+      <div class="insight-label">💡 Benchmarking Idea</div>
+      <div class="insight-text">반도체·제조업의 성과급 분쟁 사례를 통해 NAVER는 성과급의 '투명한 산정 기준'과 '기본급과의 균형 있는 구조' 재검토, 그리고 글로벌 IT 기업의 '주식 보상·장기 인센티브' 모델 도입을 검토할 시점입니다. 특히 변동 보상이 고정 연봉으로 인식되는 심리 변화를 감안해 임직원 기대치 관리 및 보상 정책의 공정성 커뮤니케이션 강화가 필요합니다.</div>
+    </div>
+    <div class="insight-block action-block">
+      <div class="insight-label">⚡ HR Action</div>
+      <div class="insight-text">①정부의 포상제도 개편 방향 및 긴급조정권 발동 가능성을 모니터링하고 관련 법령 변화에 선제 대응할 수 있는 보상 정책 리뷰 프로세스를 구축해야 합니다. ②현 성과급 정책의 산정 기준 투명성, 임직원 만족도 및 조직 사기에 미치는 영향을 긴급 진단하고, 노사 갈등 확산 전에 정책 정당성과 공정성 강화 방안을 마련해야 합니다.</div>
+    </div>
+  </div>
+  
 </div>
 
 <div class="section">
@@ -461,7 +417,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="sec-header-row">
       <div class="sec-icon">🤖</div>
       <span class="sec-title">HR Tech</span>
-      <span class="sec-cnt">3건</span>
+      <span class="sec-cnt">5건</span>
     </div>
   </div>
 
@@ -475,13 +431,7 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
         <span class="src-badge">techm.kr</span>
         <span class="dt">05/14</span>
       </div>
-      <div class="summary">기업들의 AI 도입이 확산되면서 '다양한 AI 도구 통합 관리'가 새로운 과제로 대두되고 있으며, 메가존클라우드의 HALO 같은 AI 거버넌스 솔루션이 중복성 검토, 비용 최적화, 리스크 관리에 활용되고 있다. 대규모 IT·클라우드 기업으로서 다중 AI 환경에서의 효율성 관리, 비용 통제, 직원 역량 관리 전략이 필요한 시점이다.</div>
-      
-      <div class="discussion" style="background:#7C3AED0d;border-color:#7C3AED30">
-        <div class="disc-lbl" style="color:#7C3AED">💬 Discussion</div>
-        <div class="disc-q" style="color:#7C3AEDdd">1. 조직 내 도입된 다양한 AI 도구들(생산성 도구, 코딩 보조, 분석 솔루션 등)의 사용 현황, 중복성, 비용을 통합 관리할 거버넌스 체계를 구축해야 하는가?</div><div class="disc-q" style="color:#7C3AEDdd">2. 직원들이 AI 도구를 효과적으로 활용할 수 있도록 하는 교육 및 가이드라인 체계를 강화할 필요가 있는가?</div>
-      </div>
-      
+      <div class="summary">기업들이 수백 개의 AI 도구를 혼용하면서 'AI 거버넌스' 문제가 대두되고 있으며, 메가존클라우드의 'HALO'같은 통합 관리 솔루션이 주목받고 있다. NAVER 클라우드와 같은 플랫폼 기업 입장에서 다중 AI 환경에서의 직원 생산성 관리, 규정 준수 감시, 업무 품질 보증을 위한 AI 거버넌스 역량이 인사 경쟁력으로 부상할 것이다.</div>
     </div>
   </div>
   
@@ -494,30 +444,93 @@ body{font-family:'Inter','Apple SD Gothic Neo','맑은 고딕',sans-serif;backgr
     <div class="card">
       <a class="card-title" href="https://www.econovill.com/news/articleView.html?idxno=739968" target="_blank">"1년 새 직원 52명→32명, 퍼포먼스는 200% 성장" AI 직원에게 일 시키는...</a>
       <div class="src-row-sm"><span class="src-badge">econovill.com</span><span class="dt">05/13</span></div>
-      <div class="card-summary">넥스트페이먼츠의 사례처럼 AI 도입을 통해 직원 수를 52명에서 32명으로 감소시키면서도 비즈니스 성과(퍼포먼스)를 200% 성장시킨 사례가 주목받고 있으며, 이는 단순 'AI 활용'을 넘어 '조직 구조 재편'이 동반되는 'AI 조직화' 전략의 필요성을 제시한다. 우리 조직의 조직 설계, 역량 재배치, 리스케일링 전략을 수립할 때 AI로 인한 업무 변화와 인력 재구성의 전략적 방향을 검토해야 한다.</div>
-      
-      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
-        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#7C3AEDcc">AI 도입으로 인한 업무 프로세스 자동화·효율화가 우리 조직의 어떤 직무/부서에서 직원 수 감소 또는 역할 재편을 초래할 수 있으며, 이에 대한 인력 계획(감원, 전직, 재교육)을 어떻게 수립할 것인가?</div>
-      </div>
-      
+      <div class="card-summary">넥스트페이먼츠가 직원 52명을 32명으로 감축하면서 200% 성과 성장을 달성한 사례는 'AI 활용'과 'AI 조직화'의 경계를 명확히 한다. 단순 AI 도구 도입이 아닌 조직 구조, 직무 재설계, 인력 배치 전략을 AI 기반으로 재구성하는 'AI 조직화' 방식을 벤치마킹할 필요가 있다.</div>
     </div>
   
     <div class="card">
       <a class="card-title" href="https://www.news2day.co.kr/article/20260514500103" target="_blank">[Data Job (18)] 인크루트 조사: 직장인 94.9% “업무에 AI 활용”…최대...</a>
       <div class="src-row-sm"><span class="src-badge">news2day.co.kr</span><span class="dt">05/14</span></div>
-      <div class="card-summary">인크루트 조사에 따르면 국내 직장인 94.9%가 업무에 AI를 활용하고 있으며, 단순 참고 수준을 넘어 핵심 업무와 실무 프로세스 전반에 AI를 통합하는 사례가 증가하고 있다. 이는 우리 조직의 AI 도입 수준을 벤치마킹하고, 직원 교육 및 업무 프로세스 개선 방향을 수립할 때 현황 파악의 중요한 지표가 된다.</div>
-      
-      <div class="card-disc" style="background:#7C3AED08;border-color:#7C3AED25">
-        <div class="card-disc-lbl" style="color:#7C3AED">💬 Discussion</div>
-        <div class="card-disc-q" style="color:#7C3AEDcc">현재 우리 조직 내 AI 활용 현황(도입률, 활용 부서, 활용 수준)을 조사하고, 인크루트 조사 결과와 비교하여 격차 분석 및 개선 로드맵을 수립할 필요가 있는가?</div>
-      </div>
-      
+      <div class="card-summary">인크루트 조사에 따르면 직장인 94.9%가 업무에 AI를 활용하고 있으며, 단순 참고를 넘어 핵심 업무와 실무 프로세스 전반에 AI를 통합하는 추세가 확산 중이다. 기업의 AI 도입이 실무 수준으로 심화되는 만큼, HR팀은 직원 AI 리터러시 교육, 업무 프로세스 최적화, 성과 평가 기준 재설계를 검토해야 한다.</div>
     </div>
   
-  <div class="card-empty"></div><div class="card-empty"></div>
+    <div class="card">
+      <a class="card-title" href="https://www.viva100.com/article/20260511500592" target="_blank">[비바100] “AI 도입했는데 성과는 제자리?”…기업들 ‘생산성 역설’...</a>
+      <div class="src-row-sm"><span class="src-badge">viva100.com</span><span class="dt">05/14</span></div>
+      <div class="card-summary">테크 기업 램프는 경영진 주도의 AI 활용 독려, 리더보드 시스템 도입 등으로 AI 도입의 '생산성 역설' 문제를 극복한 사례를 제시했다. HR팀은 AI 도입 초기의 생산성 하락을 예방하기 위해 경영진 코칭, 직원 인센티브 체계 개편, AI 활용 사례 공유 문화 조성 등을 즉시 설계해야 한다.</div>
+    </div>
+  
+    <div class="card">
+      <a class="card-title" href="https://magazine.hankyung.com/job-joy/article/202512194977d" target="_blank">[서원대학교 2025년 창업도약패키지 선정기업] 기업 맞춤형 커스터마이...</a>
+      <div class="src-row-sm"><span class="src-badge">magazine.hankyung.com</span><span class="dt">12/19</span></div>
+      <div class="card-summary">디웨일 등 신진 HR Tech 기업들이 AI 기반 성과관리 효율화와 피플 애널리틱스로 사업 확장 중이다. NAVER HR팀은 AI를 활용한 객관적 인사평가, 피플 데이터 기반의 조직 진단, 이직 리스크 조기 예측 등 고도화된 분석 역량을 내재화해야 한다.</div>
+    </div>
+  
+  
   </div>
   </div>
+
+  <!-- 카테고리 Idea & Action -->
+  
+  <div class="insight-bar">
+    <div class="insight-block idea-block">
+      <div class="insight-label">💡 Benchmarking Idea</div>
+      <div class="insight-text">AI 도입 기업들의 '생산성 역설' 극복 사례에서 보듯, 단순 도구 도입이 아닌 경영진 리더십, 인센티브 체계 재설계, 조직 구조 최적화를 통합하는 'AI 조직화' 전략으로 전환해야 한다. 또한 다중 AI 환경에서의 직원 거버넌스, 평가 기준 재정의, 피플 애널리틱스 고도화를 통해 AI와 인사 시스템의 정합성을 강화하는 것이 경쟁력이다.</div>
+    </div>
+    <div class="insight-block action-block">
+      <div class="insight-label">⚡ HR Action</div>
+      <div class="insight-text">즉시 (1) 직원 AI 리터러시 교육과정 설계 및 경영진 AI 활용 인센티브 체계 검토, (2) 현재 도입 중인 다중 AI 도구의 거버넌스·보안·규정준수 현황 감사, (3) 기존 성과평가 기준의 AI 시대 적합성 재검토 및 조직 직무 재설계 추진을 착수해야 한다.</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="section">
+  <!-- 카테고리 컬러 헤더 -->
+  <div class="section-cat-header" style="background:linear-gradient(135deg,#0891B2,#0891B2cc)">
+    <div class="sec-header-row">
+      <div class="sec-icon">🌍</div>
+      <span class="sec-title">글로벌 HR 동향</span>
+      <span class="sec-cnt">1건</span>
+    </div>
+  </div>
+
+  <!-- 대표 기사 -->
+  
+  <div class="featured-wrap" style="background:#0891B20a;border-left-color:#0891B2">
+    <div class="featured-inner">
+      <span class="featured-badge" style="background:#0891B2;color:#fff">⭐ Top Pick</span>
+      <a class="featured-title" href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNQ0ZnUnQ5dWp3cDFyanFtZHZ0X3gxMVgyZ1cxbUJsUFhxNFJsSUxsR21VLWdUb3BwR2dNNTdrdnRGdnZXTU5IM21uYVhFTnpCNHBxSHlOalNqZ0M0aENRUndwQjdraTE3NnNfdkRWVXBoYmdlVy10Unl6N2h6UFE5SGNNbnhWOUdmQ01Ld0xKQXczb25HczNCVmhTVUk?oc=5" target="_blank">Mexico HR Technology Market Size, Share and Opportunity Analysis 2026-2034</a>
+      <div class="src-row">
+        <span class="src-badge">vocal.media</span>
+        <span class="dt">05/15</span>
+      </div>
+      <div class="summary">멕시코의 HR 기술 시장이 2026-2034년 기간 성장할 것으로 예상되며, 이는 라틴아메리카 지역의 인력 관리 자동화 및 디지털화 수요 증가를 반영합니다. NAVER Cloud가 진출 중인 라틴아메리카 시장에서 HR 기술 솔루션의 수요 확대 기회를 제시하는 시장 분석 자료입니다.</div>
+    </div>
+  </div>
+  
+
+  <!-- 하위 기사 그리드 -->
+  
+  <div class="grid-wrap">
+  <div class="grid">
+  
+  <div class="card-empty"></div><div class="card-empty"></div><div class="card-empty"></div><div class="card-empty"></div>
+  </div>
+  </div>
+
+  <!-- 카테고리 Idea & Action -->
+  
+  <div class="insight-bar">
+    <div class="insight-block idea-block">
+      <div class="insight-label">💡 Benchmarking Idea</div>
+      <div class="insight-text">라틴아메리카 지역의 HR 기술 수요 확대는 클라우드 기반 HR 플랫폼 서비스 확장의 기회입니다. 인사 관리 자동화, 급여 관리, 모집 시스템 등 핵심 HR 기능을 클라우드 솔루션으로 패키징하여 중남미 기업들의 디지털 전환 수요를 충족하는 방안을 검토해볼 수 있습니다.</div>
+    </div>
+    <div class="insight-block action-block">
+      <div class="insight-label">⚡ HR Action</div>
+      <div class="insight-text">NAVER Cloud의 라틴아메리카 진출 전략 내에서 HR 기술 분야의 시장 기회와 경쟁 환경을 구체적으로 분석하고, 현지 파트너십 및 제품 로드맵을 정비할 필요가 있습니다. 동시에 글로벌 HR 기술 플랫폼의 현지화(언어, 규정, 문화) 요구사항을 HR팀과 협력하여 조기에 파악하는 것이 중요합니다.</div>
+    </div>
+  </div>
+  
 </div>
 
 </div>
